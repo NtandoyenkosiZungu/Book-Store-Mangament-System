@@ -161,5 +161,69 @@ namespace Novatra
             pnlMenu.Visible = false;             //Hide the main menu panel
             pnlDeleteCustomer.Visible = true;    //Show the update customer panel
         }
+
+        private void bttnUpdateConfirm_Click(object sender, EventArgs e)
+        {
+            //Reading Customer Details from TextBoxes
+            int customerID = int.Parse(txtUCustID.Text);
+            String fullName = txtUName.Text;
+            String email = txtUEmail.Text;
+            String phone = txtUPhone.Text;
+            String newPassword = txtUNewPassword.Text;
+            String currentPassword = txtUOriginalPassword.Text;
+
+            //Updating Customer Details in Database
+            try
+            {
+                this.customersTableAdapter.UpdateQuery(fullName, email, newPassword, phone, currentPassword, customerID);           // Update customer details in the database
+                MessageBox.Show("Customer updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); // Show success message
+
+
+                // Clear input fields after successful update
+                txtUCustID.Clear();
+                txtUName.Clear();
+                txtUEmail.Clear();
+                txtUPhone.Clear();
+                txtUNewPassword.Clear();
+                txtUOriginalPassword.Clear();
+
+                this.customersTableAdapter.Fill(this.mainDB.Customers); // Refresh the customer list
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error updating customer: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);             // Show error message if updating fails
+            }
+        }
+
+        private void txtUPhone_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                String phone = txtUPhone.Text;
+
+                if(phone.Length == 10)
+                {
+                    //Load customer details
+                    MainDB.CustomersDataTable customers = this.mainDB.Customers;
+
+                    // Iterate through the customers to find a match
+                    foreach (var customer in customers)
+                    {
+                        if (customer.Phone != phone) continue;
+
+                        // Populate the text boxes with customer details
+                        txtUCustID.Text = customer.CustomerID.ToString();
+                        txtUName.Text = customer.Name;
+                        txtUEmail.Text = customer.Email;
+                        break;
+                    }
+
+                }
+            }
+            catch (Exception error) {
+                
+            }
+        }
     }
 }

@@ -53,7 +53,7 @@
             this.bttnUpdateConfirm = new System.Windows.Forms.Button();
             this.bttnUpdateCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtUPassword = new System.Windows.Forms.TextBox();
+            this.txtUNewPassword = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtUPhone = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -75,6 +75,8 @@
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDB = new Novatra.MainDB();
             this.customersTableAdapter = new Novatra.MainDBTableAdapters.CustomersTableAdapter();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtUOriginalPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.pnlAddCustomer.SuspendLayout();
@@ -101,7 +103,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(680, 680);
+            this.dataGridView1.Size = new System.Drawing.Size(940, 680);
             this.dataGridView1.TabIndex = 0;
             // 
             // pnlMenu
@@ -110,7 +112,7 @@
             this.pnlMenu.Controls.Add(this.button2);
             this.pnlMenu.Controls.Add(this.button1);
             this.pnlMenu.Controls.Add(this.label1);
-            this.pnlMenu.Location = new System.Drawing.Point(777, 79);
+            this.pnlMenu.Location = new System.Drawing.Point(1077, 60);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(576, 472);
             this.pnlMenu.TabIndex = 1;
@@ -294,29 +296,31 @@
             // 
             // pnlUpdateCustomer
             // 
+            this.pnlUpdateCustomer.Controls.Add(this.label12);
+            this.pnlUpdateCustomer.Controls.Add(this.txtUOriginalPassword);
             this.pnlUpdateCustomer.Controls.Add(this.label10);
             this.pnlUpdateCustomer.Controls.Add(this.label11);
             this.pnlUpdateCustomer.Controls.Add(this.txtUCustID);
+            this.pnlUpdateCustomer.Controls.Add(this.label7);
+            this.pnlUpdateCustomer.Controls.Add(this.txtUPhone);
             this.pnlUpdateCustomer.Controls.Add(this.bttnUpdateConfirm);
             this.pnlUpdateCustomer.Controls.Add(this.bttnUpdateCancel);
             this.pnlUpdateCustomer.Controls.Add(this.label6);
-            this.pnlUpdateCustomer.Controls.Add(this.txtUPassword);
-            this.pnlUpdateCustomer.Controls.Add(this.label7);
-            this.pnlUpdateCustomer.Controls.Add(this.txtUPhone);
+            this.pnlUpdateCustomer.Controls.Add(this.txtUNewPassword);
             this.pnlUpdateCustomer.Controls.Add(this.label8);
             this.pnlUpdateCustomer.Controls.Add(this.txtUEmail);
             this.pnlUpdateCustomer.Controls.Add(this.label9);
             this.pnlUpdateCustomer.Controls.Add(this.txtUName);
-            this.pnlUpdateCustomer.Location = new System.Drawing.Point(139, 79);
+            this.pnlUpdateCustomer.Location = new System.Drawing.Point(145, 119);
             this.pnlUpdateCustomer.Name = "pnlUpdateCustomer";
-            this.pnlUpdateCustomer.Size = new System.Drawing.Size(57, 56);
+            this.pnlUpdateCustomer.Size = new System.Drawing.Size(50, 71);
             this.pnlUpdateCustomer.TabIndex = 3;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(41, 59);
+            this.label11.Location = new System.Drawing.Point(41, 266);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(120, 22);
             this.label11.TabIndex = 29;
@@ -325,7 +329,7 @@
             // txtUCustID
             // 
             this.txtUCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUCustID.Location = new System.Drawing.Point(45, 84);
+            this.txtUCustID.Location = new System.Drawing.Point(45, 291);
             this.txtUCustID.Name = "txtUCustID";
             this.txtUCustID.Size = new System.Drawing.Size(478, 28);
             this.txtUCustID.TabIndex = 28;
@@ -335,19 +339,20 @@
             this.bttnUpdateConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.bttnUpdateConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttnUpdateConfirm.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bttnUpdateConfirm.Location = new System.Drawing.Point(312, 444);
+            this.bttnUpdateConfirm.Location = new System.Drawing.Point(312, 501);
             this.bttnUpdateConfirm.Name = "bttnUpdateConfirm";
             this.bttnUpdateConfirm.Size = new System.Drawing.Size(211, 37);
             this.bttnUpdateConfirm.TabIndex = 27;
             this.bttnUpdateConfirm.Text = "Confirm";
             this.bttnUpdateConfirm.UseVisualStyleBackColor = false;
+            this.bttnUpdateConfirm.Click += new System.EventHandler(this.bttnUpdateConfirm_Click);
             // 
             // bttnUpdateCancel
             // 
             this.bttnUpdateCancel.BackColor = System.Drawing.Color.Red;
             this.bttnUpdateCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttnUpdateCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bttnUpdateCancel.Location = new System.Drawing.Point(45, 444);
+            this.bttnUpdateCancel.Location = new System.Drawing.Point(45, 501);
             this.bttnUpdateCancel.Name = "bttnUpdateCancel";
             this.bttnUpdateCancel.Size = new System.Drawing.Size(213, 37);
             this.bttnUpdateCancel.TabIndex = 26;
@@ -361,23 +366,23 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(41, 341);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 22);
+            this.label6.Size = new System.Drawing.Size(142, 22);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Password";
+            this.label6.Text = "New Password";
             // 
-            // txtUPassword
+            // txtUNewPassword
             // 
-            this.txtUPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUPassword.Location = new System.Drawing.Point(45, 366);
-            this.txtUPassword.Name = "txtUPassword";
-            this.txtUPassword.Size = new System.Drawing.Size(478, 28);
-            this.txtUPassword.TabIndex = 24;
+            this.txtUNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUNewPassword.Location = new System.Drawing.Point(45, 366);
+            this.txtUNewPassword.Name = "txtUNewPassword";
+            this.txtUNewPassword.Size = new System.Drawing.Size(478, 28);
+            this.txtUNewPassword.TabIndex = 24;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 267);
+            this.label7.Location = new System.Drawing.Point(41, 55);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(142, 22);
             this.label7.TabIndex = 23;
@@ -386,10 +391,12 @@
             // txtUPhone
             // 
             this.txtUPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUPhone.Location = new System.Drawing.Point(45, 292);
+            this.txtUPhone.Location = new System.Drawing.Point(45, 80);
+            this.txtUPhone.MaxLength = 10;
             this.txtUPhone.Name = "txtUPhone";
             this.txtUPhone.Size = new System.Drawing.Size(478, 28);
             this.txtUPhone.TabIndex = 22;
+            this.txtUPhone.TextChanged += new System.EventHandler(this.txtUPhone_TextChanged);
             // 
             // label8
             // 
@@ -488,7 +495,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 36);
+            this.label10.Size = new System.Drawing.Size(50, 36);
             this.label10.TabIndex = 30;
             this.label10.Text = "Update Customer";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -559,11 +566,29 @@
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(41, 410);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(173, 22);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Original Password";
+            // 
+            // txtUOriginalPassword
+            // 
+            this.txtUOriginalPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUOriginalPassword.Location = new System.Drawing.Point(45, 435);
+            this.txtUOriginalPassword.Name = "txtUOriginalPassword";
+            this.txtUOriginalPassword.Size = new System.Drawing.Size(478, 28);
+            this.txtUOriginalPassword.TabIndex = 31;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1387, 680);
+            this.ClientSize = new System.Drawing.Size(1732, 680);
             this.Controls.Add(this.pnlDeleteCustomer);
             this.Controls.Add(this.pnlUpdateCustomer);
             this.Controls.Add(this.pnlAddCustomer);
@@ -620,7 +645,7 @@
         private System.Windows.Forms.Button bttnUpdateConfirm;
         private System.Windows.Forms.Button bttnUpdateCancel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtUPassword;
+        private System.Windows.Forms.TextBox txtUNewPassword;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtUPhone;
         private System.Windows.Forms.Label label8;
@@ -634,5 +659,7 @@
         private System.Windows.Forms.Button bttnDeleteCancel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtUOriginalPassword;
     }
 }

@@ -85,8 +85,17 @@ namespace Novatra
             {
                 booksTableAdapter.AddBook(bookTitle, bookAuthor, price, quantity, categoryId);
                 MessageBox.Show("Book added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Clear input fields after successful addition
+                txtaBookTitle.Clear();
+                txtaBookAuthor.Clear();
+                cmbaCategory.SelectedIndex = -1;
+                numaQuantiy.Value = 1;
+                maPrice.Text = "R0.00";
+
+                this.booksTableAdapter.Fill(this.mainDB.Books); // Refresh the book list
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 MessageBox.Show("An error occurred while adding the book: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -142,6 +151,9 @@ namespace Novatra
             {
                 booksTableAdapter.DeleteBook(bookId);
                 MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtdBookID.Clear();                           // Clear input field after successful deletion
+                this.booksTableAdapter.Fill(this.mainDB.Books); // Refresh the book list
             }
             catch(Exception error)
             {
@@ -175,14 +187,16 @@ namespace Novatra
 
                 MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // this.dataGridView1.Refresh();
 
-                txtuBookTitle.Text = "";
-                txtuBookAuthor.Text = "";
-                txtuBookID.Text = "";
+                //Clear input fields after successful update
+                txtuBookID.Clear();
+                txtuBookTitle.Clear();
+                txtuBookAuthor.Clear();
                 cmbuGenre.SelectedIndex = -1;
                 numuQuantity.Value = 1;
-                txtuPrice.Text = "R00.00";
+                txtuPrice.Text = "R0.00";
+
+                this.booksTableAdapter.Fill(this.mainDB.Books); // Refresh the book list
 
             }
             catch (Exception error)
@@ -220,6 +234,16 @@ namespace Novatra
                 txtuPrice.Text = "R0.00";
                 return;
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            // Navigate back to Form3 (Customer Form)
+            this.Hide();
+            Form3 customerForm = new Form3();
+            customerForm.Show();
+
+
         }
     }
 }

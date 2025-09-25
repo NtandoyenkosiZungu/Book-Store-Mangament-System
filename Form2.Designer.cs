@@ -80,6 +80,9 @@
             this.bttnDeleteConfirm = new System.Windows.Forms.Button();
             this.bttnDeleteCancel = new System.Windows.Forms.Button();
             this.booksTableAdapter = new Novatra.MainDBTableAdapters.BooksTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB)).BeginInit();
@@ -89,6 +92,7 @@
             this.pnlUpdateBook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numuQuantity)).BeginInit();
             this.pnlDeleteBook.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -241,9 +245,9 @@
             this.pnlAddBook.Controls.Add(this.txtaBookAuthor);
             this.pnlAddBook.Controls.Add(this.label2);
             this.pnlAddBook.Controls.Add(this.txtaBookTitle);
-            this.pnlAddBook.Location = new System.Drawing.Point(169, 165);
+            this.pnlAddBook.Location = new System.Drawing.Point(149, 170);
             this.pnlAddBook.Name = "pnlAddBook";
-            this.pnlAddBook.Size = new System.Drawing.Size(64, 46);
+            this.pnlAddBook.Size = new System.Drawing.Size(54, 62);
             this.pnlAddBook.TabIndex = 2;
             this.pnlAddBook.Visible = false;
             this.pnlAddBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -292,13 +296,14 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(202, 10);
+            this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(178, 36);
+            this.label7.Size = new System.Drawing.Size(54, 36);
             this.label7.TabIndex = 12;
             this.label7.Text = "ADD BOOK";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bttnAddBookConfirm
             // 
@@ -411,7 +416,7 @@
             this.pnlUpdateBook.Controls.Add(this.txtuBookTitle);
             this.pnlUpdateBook.Location = new System.Drawing.Point(305, 165);
             this.pnlUpdateBook.Name = "pnlUpdateBook";
-            this.pnlUpdateBook.Size = new System.Drawing.Size(37, 46);
+            this.pnlUpdateBook.Size = new System.Drawing.Size(37, 74);
             this.pnlUpdateBook.TabIndex = 3;
             this.pnlUpdateBook.Visible = false;
             this.pnlUpdateBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -586,9 +591,9 @@
             this.pnlDeleteBook.Controls.Add(this.txtdBookID);
             this.pnlDeleteBook.Controls.Add(this.bttnDeleteConfirm);
             this.pnlDeleteBook.Controls.Add(this.bttnDeleteCancel);
-            this.pnlDeleteBook.Location = new System.Drawing.Point(240, 109);
+            this.pnlDeleteBook.Location = new System.Drawing.Point(240, 196);
             this.pnlDeleteBook.Name = "pnlDeleteBook";
-            this.pnlDeleteBook.Size = new System.Drawing.Size(545, 281);
+            this.pnlDeleteBook.Size = new System.Drawing.Size(59, 60);
             this.pnlDeleteBook.TabIndex = 4;
             this.pnlDeleteBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
@@ -598,7 +603,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(545, 36);
+            this.label16.Size = new System.Drawing.Size(59, 36);
             this.label16.TabIndex = 18;
             this.label16.Text = "DELETE BOOK";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -651,11 +656,45 @@
             // 
             this.booksTableAdapter.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(802, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(601, 48);
+            this.panel1.TabIndex = 6;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(233, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(217, 48);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(233, 48);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Customers";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 682);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDeleteBook);
             this.Controls.Add(this.pnlUpdateBook);
             this.Controls.Add(this.pnlAddBook);
@@ -676,6 +715,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numuQuantity)).EndInit();
             this.pnlDeleteBook.ResumeLayout(false);
             this.pnlDeleteBook.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -733,5 +773,8 @@
         private System.Windows.Forms.NumericUpDown numuQuantity;
         private System.Windows.Forms.ComboBox cmbuGenre;
         private System.Windows.Forms.TextBox txtuPrice;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
