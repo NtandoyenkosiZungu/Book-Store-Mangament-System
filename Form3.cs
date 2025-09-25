@@ -98,5 +98,46 @@ namespace Novatra
                 pnlMenu.Visible = true;                         // Show the main menu panel
             }
         }
+
+        private void bttnAddCancel_Click(object sender, EventArgs e)
+        {
+            // Confirm cancel action
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel adding a new customer?", "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(dialogResult == DialogResult.Yes)
+            {
+                pnlAddCustomer.Visible = false;                 // Hide the add panel
+                pnlMenu.Visible = true;                         // Show the main menu panel
+            }
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            pnlMenu.Visible = false;            // Hide the main menu panel
+            pnlAddCustomer.Visible = true;      // Show the add customer panel
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlMenu.Visible = false;            // Hide the main menu panel
+            pnlAddCustomer.Visible = true;     // Show the add customer panel
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pnlMenu.Visible = false;            // Hide the main menu panel
+            pnlUpdateCustomer.Visible = true;   // Show the update customer panel
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pnlMenu.Visible = false;             //Hide the main menu panel
+            pnlDeleteCustomer.Visible = true;    //Show the update customer panel
+        }
     }
 }
