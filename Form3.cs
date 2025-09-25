@@ -62,7 +62,30 @@ namespace Novatra
 
         private void bttnDeleteConfirm_Click(object sender, EventArgs e)
         {
+            //Reading Customer Details from TextBoxes
+            String fullName = txtAName.Text;
+            String email = txtAEmail.Text;
+            String phone = txtAPhone.Text;
+            String password = txtAPassword.Text;
 
+            //Inserting Customer Details into Database
+            try
+            {
+                this.customersTableAdapter.AddCustomerQuery(fullName, email, password, phone);      // Add new customer to the database
+                MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); // Show success message
+
+                // Clear input fields after successful addition
+                txtAName.Clear();
+                txtAEmail.Clear();
+                txtAPhone.Clear();
+                txtAPassword.Clear();
+                this.customersTableAdapter.Fill(this.mainDB.Customers); // Refresh the customer list
+                pnlAddCustomer.Visible = false;                 // Hide the add panel
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error adding customer: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);             // Show error message if adding fails
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -72,7 +95,6 @@ namespace Novatra
 
         private void pnlAddCustomer_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void bttnDeleteCancel_Click(object sender, EventArgs e)
