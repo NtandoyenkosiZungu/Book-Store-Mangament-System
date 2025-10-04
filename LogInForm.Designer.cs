@@ -1,6 +1,6 @@
 ﻿namespace Novatra
 {
-    partial class Form1
+    partial class LogInForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,11 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAdmin = new System.Windows.Forms.TextBox();
-            this.adminsTableAdapter1 = new Novatra.MainDBTableAdapters.AdminsTableAdapter();
+            this.adminsTableAdapter1 = new Novatra.MainDB2TableAdapters.AdminsTableAdapter();
+            this.mainDB21 = new Novatra.MainDB2();
+            this.adminsTableAdapter2 = new Novatra.MainDB2TableAdapters.AdminsTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDB21)).BeginInit();
             this.SuspendLayout();
             // 
             // bttnLogIn
@@ -103,16 +106,26 @@
             // 
             this.adminsTableAdapter1.ClearBeforeFill = true;
             // 
-            // Form1
+            // mainDB21
+            // 
+            this.mainDB21.DataSetName = "MainDB2";
+            this.mainDB21.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // adminsTableAdapter2
+            // 
+            this.adminsTableAdapter2.ClearBeforeFill = true;
+            // 
+            // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 526);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LogInForm";
+            this.Text = "Novatra: Book Store Management System";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDB21)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,7 +138,9 @@
         private System.Windows.Forms.TextBox txtAdmin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
-        private MainDBTableAdapters.AdminsTableAdapter adminsTableAdapter1;
+        private Novatra.MainDB2TableAdapters.AdminsTableAdapter adminsTableAdapter1;
+        private MainDB2 mainDB21;
+        private MainDB2TableAdapters.AdminsTableAdapter adminsTableAdapter2;
         //private MainDB adminDS1;
     }
 }

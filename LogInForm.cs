@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Novatra
 {
-    public partial class Form1 : Form
+    public partial class LogInForm : Form
     {
-        public Form1()
+        public LogInForm()
         {
             InitializeComponent();
         }
@@ -22,13 +22,13 @@ namespace Novatra
             String username = txtAdmin.Text;
             String password = txtPassword.Text;
 
-           
 
-            var results = adminsTableAdapter1.CheckLogIn( username, password);
+
+            var results = adminsTableAdapter2.CheckLogin();
 
             if(results.Rows.Count > 0)
             {
-                Form2 form2 = new Form2();
+                BooksForm form2 = new BooksForm();
                 form2.Show();
                 this.Hide();
             } else

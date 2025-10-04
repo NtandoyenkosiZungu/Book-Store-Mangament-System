@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Novatra
 {
-    public partial class Form3 : Form
+    public partial class CustomerForm : Form
     {
-        public Form3()
+        public CustomerForm()
         {
             InitializeComponent();
         }
@@ -71,7 +71,7 @@ namespace Novatra
             //Inserting Customer Details into Database
             try
             {
-                this.customersTableAdapter.AddCustomerQuery(fullName, email, password, phone);      // Add new customer to the database
+                this.customersTableAdapter.Insert(fullName, email, phone);      // Add new customer to the database
                 MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); // Show success message
 
                 // Clear input fields after successful addition
@@ -175,7 +175,7 @@ namespace Novatra
             //Updating Customer Details in Database
             try
             {
-                this.customersTableAdapter.UpdateQuery(fullName, email, newPassword, phone, currentPassword, customerID);           // Update customer details in the database
+                //this.customersTableAdapter.UpdateQuery(fullName, email, newPassword, phone, currentPassword, customerID);           // Update customer details in the database
                 MessageBox.Show("Customer updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); // Show success message
 
 
@@ -205,16 +205,16 @@ namespace Novatra
                 if(phone.Length == 10)
                 {
                     //Load customer details
-                    MainDB.CustomersDataTable customers = this.mainDB.Customers;
+                    MainDB2.CustomersDataTable customers = this.mainDB.Customers;
 
                     // Iterate through the customers to find a match
                     foreach (var customer in customers)
                     {
-                        if (customer.Phone != phone) continue;
+                        if (customer.CellPhoneNum != phone) continue;
 
                         // Populate the text boxes with customer details
                         txtUCustID.Text = customer.CustomerID.ToString();
-                        txtUName.Text = customer.Name;
+                        txtUName.Text = customer.CustomerName;
                         txtUEmail.Text = customer.Email;
                         break;
                     }
@@ -222,7 +222,7 @@ namespace Novatra
                 }
             }
             catch (Exception error) {
-                
+                MessageBox.Show("Error updating data: " , error.Message);
             }
         }
     }

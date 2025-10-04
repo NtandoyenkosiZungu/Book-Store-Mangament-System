@@ -1,4 +1,4 @@
-﻿using Novatra.MainDBTableAdapters;
+﻿using Novatra.MainDB2TableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Novatra
 {
-    public partial class Form2 : Form
+    public partial class BooksForm : Form
     {
-        public Form2()
+        public BooksForm()
         {
             InitializeComponent();
 
@@ -35,6 +35,7 @@ namespace Novatra
         {
             // TODO: This line of code loads data into the 'mainDB.Books' table. You can move, or remove it, as needed.
             this.booksTableAdapter.Fill(this.mainDB.Books);
+            this.categoriesTableAdapter1.Fill(this.mainDB.Categories);
 
         }
 
@@ -70,10 +71,9 @@ namespace Novatra
         {
             String bookTitle = txtaBookTitle.Text;                                  //Get book title from textbox
             String bookAuthor = txtaBookAuthor.Text;                                //Get book author from textbox
-            String bookGenre = cmbaCategory.Text;
 
             //Reading Category ID from ComboBox selection
-            int categoryId = int.Parse(""+bookGenre[0]);                        //We know the first character of the genre string is the category ID
+            int categoryId = Int32.Parse(""+cmbaCategory.SelectedValue);
 
 
             decimal price = decimal.Parse(maPrice.Text.Replace("R", "").Trim());   //Remove "R" and trim any whitespace before parsing
@@ -83,7 +83,7 @@ namespace Novatra
             //Inserting new book into database
             try
             {
-                booksTableAdapter.AddBook(bookTitle, bookAuthor, price, quantity, categoryId);
+                booksTableAdapter.Insert(categoryId, bookTitle, bookAuthor, price, quantity);
                 MessageBox.Show("Book added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Clear input fields after successful addition
@@ -149,7 +149,7 @@ namespace Novatra
 
             try
             {
-                booksTableAdapter.DeleteBook(bookId);
+                //booksTableAdapter.Delete(bookId);
                 MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtdBookID.Clear();                           // Clear input field after successful deletion
@@ -174,16 +174,15 @@ namespace Novatra
                 int bookId = int.Parse(txtuBookID.Text);
                 String bookTitle = txtuBookTitle.Text;                                           //Get book title from textbox
                 String bookAuthor = txtuBookAuthor.Text;                                        //Get book author from textbox
-                String bookGenre = cmbuGenre.Text;
 
                 //Reading Category ID from ComboBox selection
-                int categoryId = int.Parse(bookGenre[0].ToString());                             //We know the first character of the genre string is the category ID
+                int categoryId = Int32.Parse(""+cmbaCategory.SelectedValue);     
 
                 decimal price = decimal.Parse(txtuPrice.Text.Replace("R", "").Trim());          //Remove "R" and trim any whitespace before parsing
 
                 int quantity = (int)numuQuantity.Value;                                         //Get quantity from NumericUpDown
 
-                booksTableAdapter.UpdateBook(bookTitle, bookAuthor, price, quantity, categoryId, bookId);
+                //booksTableAdapter.UpdateBook(bookTitle, bookAuthor, price, quantity, categoryId, bookId);
 
                 MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -211,7 +210,7 @@ namespace Novatra
         {
             try { 
                 int bookId = int.Parse(txtuBookID.Text);
-                MainDB.BooksDataTable bookTable = this.mainDB.Books;
+                MainDB2.BooksDataTable bookTable = this.mainDB.Books;
 
                 booksTableAdapter.Fill(bookTable);
 
@@ -219,7 +218,7 @@ namespace Novatra
                 {
                     if (bookId != book.BookID) { continue; }
 
-                    txtuBookTitle.Text = book.Title;
+                    txtuBookTitle.Text = book.BookTitle;
                     txtuBookAuthor.Text = book.Author;
                     cmbuGenre.SelectedIndex = book.CategoryID - 1;
                     numuQuantity.Value = book.Quantity;
@@ -240,9 +239,19 @@ namespace Novatra
         {
             // Navigate back to Form3 (Customer Form)
             this.Hide();
-            Form3 customerForm = new Form3();
+            CustomerForm customerForm = new CustomerForm();
             customerForm.Show();
 
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fKBooksCategoryI18EBB532BindingSource_CurrentChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -33,5 +33,16 @@ namespace Novatra.Properties {
                 return ((string)(this["ist2gyConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=143.128.146.30\\istn2;Initial Catalog=ist2mi;Persist Security Info=Tru" +
+            "e;User ID=ist2mi;Password=9jhuhs;TrustServerCertificate=True")]
+        public string ist2miConnectionString {
+            get {
+                return ((string)(this["ist2miConnectionString"]));
+            }
+        }
     }
 }

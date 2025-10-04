@@ -1,6 +1,6 @@
 ﻿namespace Novatra
 {
-    partial class Form3
+    partial class CustomerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mainDB = new Novatra.MainDB2();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,42 +55,35 @@
             this.txtAName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlUpdateCustomer = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtUOriginalPassword = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtUCustID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtUPhone = new System.Windows.Forms.TextBox();
             this.bttnUpdateConfirm = new System.Windows.Forms.Button();
             this.bttnUpdateCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtUNewPassword = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtUPhone = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtUEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtUName = new System.Windows.Forms.TextBox();
             this.pnlDeleteCustomer = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.pnlCustID = new System.Windows.Forms.Label();
             this.txtDCustID = new System.Windows.Forms.TextBox();
             this.bttnDeleteConfirm = new System.Windows.Forms.Button();
             this.bttnDeleteCancel = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mainDB = new Novatra.MainDB();
-            this.customersTableAdapter = new Novatra.MainDBTableAdapters.CustomersTableAdapter();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtUOriginalPassword = new System.Windows.Forms.TextBox();
+            this.customersTableAdapter = new Novatra.MainDB2TableAdapters.CustomersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDB)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.pnlAddCustomer.SuspendLayout();
             this.pnlUpdateCustomer.SuspendLayout();
             this.pnlDeleteCustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDB)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -105,6 +105,57 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(940, 680);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customersBindingSource
+            // 
+            this.customersBindingSource.DataMember = "Customers";
+            this.customersBindingSource.DataSource = this.mainDB;
+            // 
+            // mainDB
+            // 
+            this.mainDB.DataSetName = "MainDB";
+            this.mainDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pnlMenu
             // 
@@ -316,6 +367,35 @@
             this.pnlUpdateCustomer.Size = new System.Drawing.Size(50, 71);
             this.pnlUpdateCustomer.TabIndex = 3;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(41, 410);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(173, 22);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Original Password";
+            // 
+            // txtUOriginalPassword
+            // 
+            this.txtUOriginalPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUOriginalPassword.Location = new System.Drawing.Point(45, 435);
+            this.txtUOriginalPassword.Name = "txtUOriginalPassword";
+            this.txtUOriginalPassword.Size = new System.Drawing.Size(478, 28);
+            this.txtUOriginalPassword.TabIndex = 31;
+            // 
+            // label10
+            // 
+            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 36);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "Update Customer";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -333,6 +413,26 @@
             this.txtUCustID.Name = "txtUCustID";
             this.txtUCustID.Size = new System.Drawing.Size(478, 28);
             this.txtUCustID.TabIndex = 28;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(41, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(142, 22);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Phone Number";
+            // 
+            // txtUPhone
+            // 
+            this.txtUPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUPhone.Location = new System.Drawing.Point(45, 80);
+            this.txtUPhone.MaxLength = 10;
+            this.txtUPhone.Name = "txtUPhone";
+            this.txtUPhone.Size = new System.Drawing.Size(478, 28);
+            this.txtUPhone.TabIndex = 22;
+            this.txtUPhone.TextChanged += new System.EventHandler(this.txtUPhone_TextChanged);
             // 
             // bttnUpdateConfirm
             // 
@@ -377,26 +477,6 @@
             this.txtUNewPassword.Name = "txtUNewPassword";
             this.txtUNewPassword.Size = new System.Drawing.Size(478, 28);
             this.txtUNewPassword.TabIndex = 24;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 55);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 22);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Phone Number";
-            // 
-            // txtUPhone
-            // 
-            this.txtUPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUPhone.Location = new System.Drawing.Point(45, 80);
-            this.txtUPhone.MaxLength = 10;
-            this.txtUPhone.Name = "txtUPhone";
-            this.txtUPhone.Size = new System.Drawing.Size(478, 28);
-            this.txtUPhone.TabIndex = 22;
-            this.txtUPhone.TextChanged += new System.EventHandler(this.txtUPhone_TextChanged);
             // 
             // label8
             // 
@@ -446,6 +526,17 @@
             this.pnlDeleteCustomer.Size = new System.Drawing.Size(77, 61);
             this.pnlDeleteCustomer.TabIndex = 5;
             // 
+            // label16
+            // 
+            this.label16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(77, 36);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "DELETE CUSTOMER";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlCustID
             // 
             this.pnlCustID.AutoSize = true;
@@ -489,102 +580,11 @@
             this.bttnDeleteCancel.UseVisualStyleBackColor = false;
             this.bttnDeleteCancel.Click += new System.EventHandler(this.bttnDeleteCancel_Click);
             // 
-            // label10
-            // 
-            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(0, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 36);
-            this.label10.TabIndex = 30;
-            this.label10.Text = "Update Customer";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(0, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 36);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "DELETE CUSTOMER";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customersBindingSource
-            // 
-            this.customersBindingSource.DataMember = "Customers";
-            this.customersBindingSource.DataSource = this.mainDB;
-            // 
-            // mainDB
-            // 
-            this.mainDB.DataSetName = "MainDB";
-            this.mainDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // customersTableAdapter
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(41, 410);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(173, 22);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Original Password";
-            // 
-            // txtUOriginalPassword
-            // 
-            this.txtUOriginalPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUOriginalPassword.Location = new System.Drawing.Point(45, 435);
-            this.txtUOriginalPassword.Name = "txtUOriginalPassword";
-            this.txtUOriginalPassword.Size = new System.Drawing.Size(478, 28);
-            this.txtUOriginalPassword.TabIndex = 31;
-            // 
-            // Form3
+            // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -594,10 +594,12 @@
             this.Controls.Add(this.pnlAddCustomer);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "CustomerForm";
+            this.Text = "Customer Management";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDB)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlAddCustomer.ResumeLayout(false);
             this.pnlAddCustomer.PerformLayout();
@@ -605,8 +607,6 @@
             this.pnlUpdateCustomer.PerformLayout();
             this.pnlDeleteCustomer.ResumeLayout(false);
             this.pnlDeleteCustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDB)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -614,9 +614,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private MainDB mainDB;
+        private MainDB2 mainDB;
         private System.Windows.Forms.BindingSource customersBindingSource;
-        private MainDBTableAdapters.CustomersTableAdapter customersTableAdapter;
+        private MainDB2TableAdapters.CustomersTableAdapter customersTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
