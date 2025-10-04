@@ -197,9 +197,9 @@
             this.pnlAddCustomer.Controls.Add(this.label15);
             this.pnlAddCustomer.Controls.Add(this.txtAName);
             this.pnlAddCustomer.Controls.Add(this.label2);
-            this.pnlAddCustomer.Location = new System.Drawing.Point(41, 79);
+            this.pnlAddCustomer.Location = new System.Drawing.Point(334, 78);
             this.pnlAddCustomer.Name = "pnlAddCustomer";
-            this.pnlAddCustomer.Size = new System.Drawing.Size(571, 486);
+            this.pnlAddCustomer.Size = new System.Drawing.Size(52, 98);
             this.pnlAddCustomer.TabIndex = 2;
             this.pnlAddCustomer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAddCustomer_Paint);
             // 
@@ -309,7 +309,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(571, 40);
+            this.label2.Size = new System.Drawing.Size(52, 40);
             this.label2.TabIndex = 1;
             this.label2.Text = "Add Customer";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

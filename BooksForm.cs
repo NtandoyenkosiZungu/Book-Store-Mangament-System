@@ -180,11 +180,12 @@ namespace Novatra
 
         private void bttnDeleteConfirm_Click(object sender, EventArgs e)
         {
-            int bookId = int.Parse(txtdBookID.Text);
-
             try
             {
-                //booksTableAdapter.Delete(bookId);
+
+                int bookId = int.Parse(txtdBookID.Text);
+
+                this.booksTableAdapter.DeleteBookQuery(bookId);
                 MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtdBookID.Clear();                           // Clear input field after successful deletion
@@ -212,9 +213,20 @@ namespace Novatra
             //Reading Category ID from ComboBox selection
             int categoryId = Int32.Parse("" + cmbaCategory.SelectedValue);
 
-            decimal price = decimal.Parse(txtuPrice.Text.Replace("R", "").Trim());          //Remove "R" and trim any whitespace before parsing
+            decimal price = 0;
 
             int quantity = (int)numuQuantity.Value;                                         //Get quantity from NumericUpDown
+
+
+            try
+            {
+               price = decimal.Parse(txtuPrice.Text.Replace("R", "").Trim());          //Remove "R" and trim any whitespace before parsing
+            } catch (Exception error)
+            {
+                MessageBox.Show("Price was not correctly formated \n Correct Format: R0000.00 - R9999.99");
+                txtuPrice.Focus();
+                return;
+            }
 
             //Performing Data Validation
             if (string.IsNullOrEmpty(bookTitle))
@@ -241,7 +253,7 @@ namespace Novatra
 
 
                 //booksTableAdapter.UpdateBook(bookTitle, bookAuthor, price, quantity, categoryId, bookId);
-                
+                booksTableAdapter.UpdateBookQuery(bookTitle, bookAuthor, price, quantity, categoryId, bookId);
 
                 MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

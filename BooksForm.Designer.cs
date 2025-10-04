@@ -420,9 +420,9 @@
             this.pnlUpdateBook.Controls.Add(this.txtuBookAuthor);
             this.pnlUpdateBook.Controls.Add(this.label13);
             this.pnlUpdateBook.Controls.Add(this.txtuBookTitle);
-            this.pnlUpdateBook.Location = new System.Drawing.Point(283, 72);
+            this.pnlUpdateBook.Location = new System.Drawing.Point(168, 72);
             this.pnlUpdateBook.Name = "pnlUpdateBook";
-            this.pnlUpdateBook.Size = new System.Drawing.Size(560, 496);
+            this.pnlUpdateBook.Size = new System.Drawing.Size(43, 64);
             this.pnlUpdateBook.TabIndex = 3;
             this.pnlUpdateBook.Visible = false;
             this.pnlUpdateBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -490,7 +490,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(560, 36);
+            this.label8.Size = new System.Drawing.Size(43, 36);
             this.label8.TabIndex = 12;
             this.label8.Text = "UPDATE BOOK";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -596,7 +596,7 @@
             this.pnlDeleteBook.Controls.Add(this.bttnDeleteCancel);
             this.pnlDeleteBook.Location = new System.Drawing.Point(240, 196);
             this.pnlDeleteBook.Name = "pnlDeleteBook";
-            this.pnlDeleteBook.Size = new System.Drawing.Size(59, 60);
+            this.pnlDeleteBook.Size = new System.Drawing.Size(534, 196);
             this.pnlDeleteBook.TabIndex = 4;
             this.pnlDeleteBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
@@ -606,7 +606,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 36);
+            this.label16.Size = new System.Drawing.Size(534, 36);
             this.label16.TabIndex = 18;
             this.label16.Text = "DELETE BOOK";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
