@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bookIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDB = new Novatra.MainDB2();
             this.pnlMenu = new System.Windows.Forms.Panel();
@@ -80,12 +86,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.categoriesTableAdapter1 = new Novatra.MainDB2TableAdapters.CategoriesTableAdapter();
-            this.bookIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB)).BeginInit();
@@ -116,9 +116,58 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 682);
+            this.dataGridView1.Size = new System.Drawing.Size(904, 682);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // bookIDDataGridViewTextBoxColumn
+            // 
+            this.bookIDDataGridViewTextBoxColumn.DataPropertyName = "BookID";
+            this.bookIDDataGridViewTextBoxColumn.HeaderText = "BookID";
+            this.bookIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.bookIDDataGridViewTextBoxColumn.Name = "bookIDDataGridViewTextBoxColumn";
+            this.bookIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // categoryIDDataGridViewTextBoxColumn
+            // 
+            this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "CategoryID";
+            this.categoryIDDataGridViewTextBoxColumn.HeaderText = "CategoryID";
+            this.categoryIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
+            this.categoryIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bookTitleDataGridViewTextBoxColumn
+            // 
+            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
+            this.bookTitleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // authorDataGridViewTextBoxColumn
+            // 
+            this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
+            this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
+            this.authorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            this.authorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 125;
             // 
             // booksBindingSource
             // 
@@ -136,7 +185,7 @@
             this.pnlMenu.Controls.Add(this.bttnDeleteBook);
             this.pnlMenu.Controls.Add(this.bttnUpdateBook);
             this.pnlMenu.Controls.Add(this.bttnAddBook);
-            this.pnlMenu.Location = new System.Drawing.Point(822, 100);
+            this.pnlMenu.Location = new System.Drawing.Point(946, 100);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(569, 480);
             this.pnlMenu.TabIndex = 1;
@@ -202,7 +251,7 @@
             this.pnlAddBook.Controls.Add(this.txtaBookTitle);
             this.pnlAddBook.Location = new System.Drawing.Point(76, 100);
             this.pnlAddBook.Name = "pnlAddBook";
-            this.pnlAddBook.Size = new System.Drawing.Size(53, 47);
+            this.pnlAddBook.Size = new System.Drawing.Size(49, 65);
             this.pnlAddBook.TabIndex = 2;
             this.pnlAddBook.Visible = false;
             this.pnlAddBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -257,7 +306,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 36);
+            this.label7.Size = new System.Drawing.Size(49, 36);
             this.label7.TabIndex = 12;
             this.label7.Text = "ADD BOOK";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -371,9 +420,9 @@
             this.pnlUpdateBook.Controls.Add(this.txtuBookAuthor);
             this.pnlUpdateBook.Controls.Add(this.label13);
             this.pnlUpdateBook.Controls.Add(this.txtuBookTitle);
-            this.pnlUpdateBook.Location = new System.Drawing.Point(349, 140);
+            this.pnlUpdateBook.Location = new System.Drawing.Point(283, 72);
             this.pnlUpdateBook.Name = "pnlUpdateBook";
-            this.pnlUpdateBook.Size = new System.Drawing.Size(43, 70);
+            this.pnlUpdateBook.Size = new System.Drawing.Size(560, 496);
             this.pnlUpdateBook.TabIndex = 3;
             this.pnlUpdateBook.Visible = false;
             this.pnlUpdateBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -441,7 +490,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 36);
+            this.label8.Size = new System.Drawing.Size(560, 36);
             this.label8.TabIndex = 12;
             this.label8.Text = "UPDATE BOOK";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -615,9 +664,9 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(802, 0);
+            this.panel1.Location = new System.Drawing.Point(904, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(622, 48);
+            this.panel1.Size = new System.Drawing.Size(726, 48);
             this.panel1.TabIndex = 6;
             // 
             // button2
@@ -648,60 +697,11 @@
             // 
             this.categoriesTableAdapter1.ClearBeforeFill = true;
             // 
-            // bookIDDataGridViewTextBoxColumn
-            // 
-            this.bookIDDataGridViewTextBoxColumn.DataPropertyName = "BookID";
-            this.bookIDDataGridViewTextBoxColumn.HeaderText = "BookID";
-            this.bookIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.bookIDDataGridViewTextBoxColumn.Name = "bookIDDataGridViewTextBoxColumn";
-            this.bookIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bookIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // categoryIDDataGridViewTextBoxColumn
-            // 
-            this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "CategoryID";
-            this.categoryIDDataGridViewTextBoxColumn.HeaderText = "CategoryID";
-            this.categoryIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
-            this.categoryIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // bookTitleDataGridViewTextBoxColumn
-            // 
-            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
-            this.bookTitleDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // authorDataGridViewTextBoxColumn
-            // 
-            this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
-            this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
-            this.authorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
-            this.authorDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 125;
-            // 
             // BooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1424, 682);
+            this.ClientSize = new System.Drawing.Size(1630, 682);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDeleteBook);
             this.Controls.Add(this.pnlUpdateBook);
@@ -709,7 +709,7 @@
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.dataGridView1);
             this.Name = "BooksForm";
-            this.Text = "Form2";
+            this.Text = "Book Management ";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();

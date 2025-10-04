@@ -17,6 +17,7 @@ namespace Novatra
         {
             InitializeComponent();
 
+            //SETTING UP Panel Alignment
             pnlMenu.Visible = true;
             pnlAddBook.Visible = false;
             pnlUpdateBook.Visible = false;
@@ -52,6 +53,15 @@ namespace Novatra
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //If no relevant data has been inputted, do not prompt the user to confirm cancellation
+            if (string.IsNullOrEmpty(txtaBookTitle.Text) && string.IsNullOrEmpty(txtaBookAuthor.Text) && string.IsNullOrEmpty(cmbaCategory.Text))
+            {
+                pnlAddBook.Visible = false;
+                pnlMenu.Visible = true;
+                return;
+            }
+
+            //Confirm Cancellation
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel adding a new book?", "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
@@ -71,14 +81,39 @@ namespace Novatra
         {
             String bookTitle = txtaBookTitle.Text;                                  //Get book title from textbox
             String bookAuthor = txtaBookAuthor.Text;                                //Get book author from textbox
+            int categoryId = Int32.Parse(""+cmbaCategory.SelectedValue);            //Reading Category ID from ComboBox selection
+            
+            int quantity = (int) numaQuantiy.Value;                                //Get quantity from NumericUpDown
 
-            //Reading Category ID from ComboBox selection
-            int categoryId = Int32.Parse(""+cmbaCategory.SelectedValue);
+            decimal price = 0;
+            try
+            {
+                price = decimal.Parse(maPrice.Text.Replace("R", "").Trim());   //Remove "R" and trim any whitespace before parsing
+            }
+            catch (Exception error) {
+                MessageBox.Show("Price was not correctly formated \n Correct Format: R0000.00 - R9999.99");
+                maPrice.Focus();
+                return;
+            }
 
-
-            decimal price = decimal.Parse(maPrice.Text.Replace("R", "").Trim());   //Remove "R" and trim any whitespace before parsing
-
-            int quantity = (int) numaQuantiy.Value;                             //Get quantity from NumericUpDown
+            //Performing Data Validation
+            if (string.IsNullOrEmpty(bookTitle))
+            {
+                MessageBox.Show("Book Title Field must not be empty", "Book Title Missing Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtaBookTitle.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(bookAuthor)) {
+                MessageBox.Show("Book Author Field must not be empty", "Book Author Missing Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtaBookAuthor.Focus();
+                return;
+            }
+            if(quantity < 1 || quantity > 100)
+            {
+                MessageBox.Show("Book qauntity must be in range (1 - 100)", "Book Quantity Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numaQuantiy.Focus();
+                return;
+            }
 
             //Inserting new book into database
             try
@@ -169,20 +204,44 @@ namespace Novatra
 
         private void bttnUpdateBookConfirm_Click(object sender, EventArgs e)
         {
+
+            int bookId = int.Parse(txtuBookID.Text);
+            String bookTitle = txtuBookTitle.Text;                                           //Get book title from textbox
+            String bookAuthor = txtuBookAuthor.Text;                                        //Get book author from textbox
+
+            //Reading Category ID from ComboBox selection
+            int categoryId = Int32.Parse("" + cmbaCategory.SelectedValue);
+
+            decimal price = decimal.Parse(txtuPrice.Text.Replace("R", "").Trim());          //Remove "R" and trim any whitespace before parsing
+
+            int quantity = (int)numuQuantity.Value;                                         //Get quantity from NumericUpDown
+
+            //Performing Data Validation
+            if (string.IsNullOrEmpty(bookTitle))
+            {
+                MessageBox.Show("Book Title Field must not be empty", "Book Title Missing Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtaBookTitle.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(bookAuthor))
+            {
+                MessageBox.Show("Book Author Field must not be empty", "Book Author Missing Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtaBookAuthor.Focus();
+                return;
+            }
+            if (quantity < 1 || quantity > 100)
+            {
+                MessageBox.Show("Book qauntity must be in range (1 - 100)", "Book Quantity Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numaQuantiy.Focus();
+                return;
+            }
+
             try
             {
-                int bookId = int.Parse(txtuBookID.Text);
-                String bookTitle = txtuBookTitle.Text;                                           //Get book title from textbox
-                String bookAuthor = txtuBookAuthor.Text;                                        //Get book author from textbox
 
-                //Reading Category ID from ComboBox selection
-                int categoryId = Int32.Parse(""+cmbaCategory.SelectedValue);     
-
-                decimal price = decimal.Parse(txtuPrice.Text.Replace("R", "").Trim());          //Remove "R" and trim any whitespace before parsing
-
-                int quantity = (int)numuQuantity.Value;                                         //Get quantity from NumericUpDown
 
                 //booksTableAdapter.UpdateBook(bookTitle, bookAuthor, price, quantity, categoryId, bookId);
+                
 
                 MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

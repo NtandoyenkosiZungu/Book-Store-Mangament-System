@@ -24,7 +24,7 @@ namespace Novatra
 
 
 
-            var results = adminsTableAdapter2.CheckLogin();
+            var results = adminsTableAdapter2.LogIn(username, password);
 
             if(results.Rows.Count > 0)
             {
