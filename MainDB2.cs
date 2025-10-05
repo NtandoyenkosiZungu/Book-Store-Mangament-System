@@ -7,9 +7,12 @@
     }
 }
 
-namespace Novatra.MainDB2TableAdapters {
-    
-    
+namespace Novatra.MainDB2TableAdapters
+{
+    partial class OrdersTableAdapter
+    {
+    }
+
     public partial class AdminsTableAdapter {
     }
 }

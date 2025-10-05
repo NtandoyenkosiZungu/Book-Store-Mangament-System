@@ -38,6 +38,10 @@ namespace Novatra
             pnlDeleteCustomer.Size = new Size(pnlMenu.Size.Width, 235);
 
 
+            // Maximize the form window
+            this.WindowState = FormWindowState.Maximized;
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -224,6 +228,33 @@ namespace Novatra
             catch (Exception error) {
                 MessageBox.Show("Error updating data: " , error.Message);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //Navigate to Books Form
+            BooksForm booksForm = new BooksForm();
+            booksForm.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //Navigate to Orders Form
+            OrderForm orderForm = new OrderForm();
+            orderForm.Show();
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            LogInForm logInForm = new LogInForm();
+            logInForm.Show();
+            this.Close();
         }
     }
 }

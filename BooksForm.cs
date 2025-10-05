@@ -17,6 +17,15 @@ namespace Novatra
         {
             InitializeComponent();
 
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'mainDB.Books' table. You can move, or remove it, as needed.
+            this.booksTableAdapter.Fill(this.mainDB.Books);
+            this.categoriesTableAdapter1.Fill(this.mainDB.Categories);
+
             //SETTING UP Panel Alignment
             pnlMenu.Visible = true;
             pnlAddBook.Visible = false;
@@ -30,13 +39,9 @@ namespace Novatra
             pnlAddBook.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
             pnlUpdateBook.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
             pnlDeleteBook.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
-        }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'mainDB.Books' table. You can move, or remove it, as needed.
-            this.booksTableAdapter.Fill(this.mainDB.Books);
-            this.categoriesTableAdapter1.Fill(this.mainDB.Categories);
+            // Maximize the form window
+            this.WindowState = FormWindowState.Maximized;
 
         }
 
@@ -308,22 +313,34 @@ namespace Novatra
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Navigate back to Form3 (Customer Form)
-            this.Hide();
-            CustomerForm customerForm = new CustomerForm();
-            customerForm.Show();
-
-
         }
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-
+            // Navigate back to Form3 (Customer Form)
+            this.Close();
+            CustomerForm customerForm = new CustomerForm();
+            customerForm.Show();
         }
 
         private void fKBooksCategoryI18EBB532BindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Navigate to Order Form
+            OrderForm orderForm = new OrderForm();
+            orderForm.Show();
+            this.Close();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            LogInForm logInForm = new LogInForm();
+            logInForm.Show();
+            this.Close();
         }
     }
 }
