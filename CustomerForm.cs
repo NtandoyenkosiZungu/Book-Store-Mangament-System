@@ -70,7 +70,6 @@ namespace Novatra
             String fullName = txtAName.Text;
             String email = txtAEmail.Text;
             String phone = txtAPhone.Text;
-            String password = txtAPassword.Text;
 
             //Inserting Customer Details into Database
             try
@@ -82,9 +81,9 @@ namespace Novatra
                 txtAName.Clear();
                 txtAEmail.Clear();
                 txtAPhone.Clear();
-                txtAPassword.Clear();
                 this.customersTableAdapter.Fill(this.mainDB.Customers); // Refresh the customer list
                 pnlAddCustomer.Visible = false;                 // Hide the add panel
+                pnlMenu.Visible = false;
             }
             catch (Exception error)
             {
@@ -173,13 +172,11 @@ namespace Novatra
             String fullName = txtUName.Text;
             String email = txtUEmail.Text;
             String phone = txtUPhone.Text;
-            String newPassword = txtUNewPassword.Text;
-            String currentPassword = txtUOriginalPassword.Text;
 
             //Updating Customer Details in Database
             try
             {
-                //this.customersTableAdapter.UpdateQuery(fullName, email, newPassword, phone, currentPassword, customerID);           // Update customer details in the database
+                this.customersTableAdapter.UpdateQuery(fullName, email, phone, customerID);           // Update customer details in the database
                 MessageBox.Show("Customer updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); // Show success message
 
 
@@ -188,8 +185,6 @@ namespace Novatra
                 txtUName.Clear();
                 txtUEmail.Clear();
                 txtUPhone.Clear();
-                txtUNewPassword.Clear();
-                txtUOriginalPassword.Clear();
 
                 this.customersTableAdapter.Fill(this.mainDB.Customers); // Refresh the customer list
 
@@ -255,6 +250,52 @@ namespace Novatra
             LogInForm logInForm = new LogInForm();
             logInForm.Show();
             this.Close();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.Sort = "CustomerName ASC";
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MoveFirst();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MovePrevious();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MoveNext();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MoveLast();
+        }
+
+        private void bttnDeleteConfirm_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                int custID = int.Parse(txtDCustID.Text);
+
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this customer ", "DELETING CUSTOMER", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes) {
+                    customersTableAdapter.DeleteQuery(custID);
+                    txtDCustID.Text = "";
+                    this.customersTableAdapter.Fill(this.mainDB.Customers);
+                    MessageBox.Show("Customer successfully deleted", "DELETING CUSTOMER");
+                }
+            }catch(Exception error)
+            {
+                MessageBox.Show("Deleting Customer Error: " + error.Message );
+            }
+
+            
         }
     }
 }

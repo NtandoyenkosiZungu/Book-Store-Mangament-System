@@ -88,6 +88,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.categoriesTableAdapter1 = new Novatra.MainDB2TableAdapters.CategoriesTableAdapter();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB)).BeginInit();
@@ -99,6 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numuQuantity)).BeginInit();
             this.pnlDeleteBook.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -187,7 +195,7 @@
             this.pnlMenu.Controls.Add(this.bttnDeleteBook);
             this.pnlMenu.Controls.Add(this.bttnUpdateBook);
             this.pnlMenu.Controls.Add(this.bttnAddBook);
-            this.pnlMenu.Location = new System.Drawing.Point(1052, 81);
+            this.pnlMenu.Location = new System.Drawing.Point(1157, 67);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(569, 480);
             this.pnlMenu.TabIndex = 1;
@@ -726,11 +734,101 @@
             // 
             this.categoriesTableAdapter1.ClearBeforeFill = true;
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button10);
+            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.button8);
+            this.panel2.Controls.Add(this.button7);
+            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.button4);
+            this.panel2.Location = new System.Drawing.Point(910, 65);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(227, 530);
+            this.panel2.TabIndex = 7;
+            // 
+            // button10
+            // 
+            this.button10.AccessibleDescription = "";
+            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(0, 295);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(223, 59);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "Order By Price (ASC)";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.AccessibleDescription = "";
+            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(0, 236);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(223, 59);
+            this.button9.TabIndex = 4;
+            this.button9.Text = "Order By Title (ASC)";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(0, 177);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(223, 59);
+            this.button8.TabIndex = 3;
+            this.button8.Text = "Go To Last";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(0, 118);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(223, 59);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "Next";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(0, 59);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(223, 59);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Previous";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button4
+            // 
+            this.button4.AccessibleDescription = "";
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(223, 59);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Go To First";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // BooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1821, 682);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDeleteBook);
             this.Controls.Add(this.pnlUpdateBook);
@@ -754,6 +852,7 @@
             this.pnlDeleteBook.ResumeLayout(false);
             this.pnlDeleteBook.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -820,5 +919,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
     }
 }

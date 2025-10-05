@@ -342,5 +342,35 @@ namespace Novatra
             logInForm.Show();
             this.Close();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            booksBindingSource.MoveNext();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            booksBindingSource.MoveLast();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            booksBindingSource.MoveFirst();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            booksBindingSource.Sort = "BookTitle ASC";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            booksBindingSource.MovePrevious();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            booksBindingSource.Sort = "Price ASC";
+        }
     }
 }

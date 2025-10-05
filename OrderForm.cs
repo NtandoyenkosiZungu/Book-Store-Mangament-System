@@ -43,7 +43,7 @@ namespace Novatra
             pnlUpdateStatus.Size = new Size(650, 730);
 
             pnlAnalytics.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
-            pnlAnalytics.Size = new Size(1060, 810);
+            pnlAnalytics.Size = new Size(960, 810);
             //Maximize the form window
             this.WindowState = FormWindowState.Maximized;
 
@@ -245,7 +245,7 @@ namespace Novatra
                     if (orderID != order.OrderID) continue;
 
                     txtuBookID.Text = order.BookID.ToString();
-                    txtuCustID.Text = order.BookID.ToString();
+                    txtuCustID.Text = order.CustomerID.ToString();
                     txtuQuantity.Text = order.BookQuantity.ToString();
                     txtuTotal.Text = "R" + order.OrderTotal;
                     cmbOrderStatus.Text = order.Completed;
@@ -344,6 +344,46 @@ namespace Novatra
             this.Close();
 
         }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            ordersBindingSource.MoveFirst();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            ordersBindingSource.MovePrevious();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            ordersBindingSource.MoveNext();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            ordersBindingSource.MoveLast();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            ordersBindingSource.Sort = "BookQuantity DESC";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            ordersBindingSource.Sort = "Total DESC";
+        }
+
+        private void panel2_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
 
         private void listViewCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {

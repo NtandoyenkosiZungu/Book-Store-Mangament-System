@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.button15 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,17 +112,23 @@
             this.customersTableAdapter1 = new Novatra.MainDB2TableAdapters.CustomersTableAdapter();
             this.booksTableAdapter1 = new Novatra.MainDB2TableAdapters.BooksTableAdapter();
             this.pnlAnalytics = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
+            this.bttnClose = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.OrderGridView = new System.Windows.Forms.DataGridView();
             this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.OrderGridView = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.bttnClose = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
@@ -139,6 +146,7 @@
             this.pnlAnalytics.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -147,11 +155,22 @@
             this.pnlMenu.Controls.Add(this.button2);
             this.pnlMenu.Controls.Add(this.button1);
             this.pnlMenu.Controls.Add(this.label1);
-            this.pnlMenu.Location = new System.Drawing.Point(868, 88);
+            this.pnlMenu.Location = new System.Drawing.Point(1079, 91);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(576, 698);
             this.pnlMenu.TabIndex = 2;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            // 
+            // button15
+            // 
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Location = new System.Drawing.Point(6, 249);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(567, 87);
+            this.button15.TabIndex = 3;
+            this.button15.Text = "Store Analytics";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button2
             // 
@@ -188,6 +207,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -205,6 +227,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(812, 957);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // orderIDDataGridViewTextBoxColumn
             // 
@@ -761,9 +784,9 @@
             this.pnlUpdateStatus.Controls.Add(this.label21);
             this.pnlUpdateStatus.Controls.Add(this.label18);
             this.pnlUpdateStatus.Controls.Add(this.label16);
-            this.pnlUpdateStatus.Location = new System.Drawing.Point(142, 63);
+            this.pnlUpdateStatus.Location = new System.Drawing.Point(137, 91);
             this.pnlUpdateStatus.Name = "pnlUpdateStatus";
-            this.pnlUpdateStatus.Size = new System.Drawing.Size(59, 87);
+            this.pnlUpdateStatus.Size = new System.Drawing.Size(41, 171);
             this.pnlUpdateStatus.TabIndex = 10;
             this.pnlUpdateStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
             // 
@@ -975,7 +998,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 36);
+            this.label16.Size = new System.Drawing.Size(41, 36);
             this.label16.TabIndex = 1;
             this.label16.Text = "UPDATE ORDER STATUS";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1000,25 +1023,25 @@
             // pnlAnalytics
             // 
             this.pnlAnalytics.Controls.Add(this.bttnClose);
-            this.pnlAnalytics.Controls.Add(this.label30);
-            this.pnlAnalytics.Controls.Add(this.textBox1);
             this.pnlAnalytics.Controls.Add(this.panel7);
             this.pnlAnalytics.Controls.Add(this.label28);
-            this.pnlAnalytics.Location = new System.Drawing.Point(18, 33);
+            this.pnlAnalytics.Location = new System.Drawing.Point(192, 207);
             this.pnlAnalytics.Name = "pnlAnalytics";
-            this.pnlAnalytics.Size = new System.Drawing.Size(812, 810);
+            this.pnlAnalytics.Size = new System.Drawing.Size(32, 136);
             this.pnlAnalytics.TabIndex = 12;
             // 
-            // label28
+            // bttnClose
             // 
-            this.label28.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(0, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(812, 36);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "ANALYTICS";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bttnClose.BackColor = System.Drawing.Color.Red;
+            this.bttnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttnClose.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bttnClose.Location = new System.Drawing.Point(14, 487);
+            this.bttnClose.Name = "bttnClose";
+            this.bttnClose.Size = new System.Drawing.Size(191, 37);
+            this.bttnClose.TabIndex = 37;
+            this.bttnClose.Text = "Close";
+            this.bttnClose.UseVisualStyleBackColor = false;
+            this.bttnClose.Click += new System.EventHandler(this.bttnClose_Click);
             // 
             // panel7
             // 
@@ -1030,39 +1053,42 @@
             this.panel7.Controls.Add(this.label29);
             this.panel7.Location = new System.Drawing.Point(17, 66);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1024, 381);
+            this.panel7.Size = new System.Drawing.Size(932, 381);
             this.panel7.TabIndex = 3;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
-            // label29
+            // button14
             // 
-            this.label29.AutoSize = true;
-            this.label29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(0, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(146, 22);
-            this.label29.TabIndex = 34;
-            this.label29.Text = "Top Customers";
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Location = new System.Drawing.Point(710, 154);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(207, 51);
+            this.button14.TabIndex = 38;
+            this.button14.Text = "Top Books (Copies Sold)";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
-            // label30
+            // button13
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(13, 478);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(152, 22);
-            this.label30.TabIndex = 36;
-            this.label30.Text = "Customer Name";
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Location = new System.Drawing.Point(710, 92);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(207, 51);
+            this.button13.TabIndex = 37;
+            this.button13.Text = "Top Books (Sales)";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // textBox1
+            // button3
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(17, 503);
-            this.textBox1.MaxLength = 10;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(344, 28);
-            this.textBox1.TabIndex = 35;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(710, 28);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(207, 51);
+            this.button3.TabIndex = 36;
+            this.button3.Text = "Top Customers";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // OrderGridView
             // 
@@ -1071,71 +1097,149 @@
             this.OrderGridView.Name = "OrderGridView";
             this.OrderGridView.RowHeadersWidth = 51;
             this.OrderGridView.RowTemplate.Height = 24;
-            this.OrderGridView.Size = new System.Drawing.Size(800, 331);
+            this.OrderGridView.Size = new System.Drawing.Size(700, 331);
             this.OrderGridView.TabIndex = 35;
             // 
-            // button3
+            // label29
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(810, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(207, 51);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "Top Customers";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label29.AutoSize = true;
+            this.label29.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(0, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(150, 22);
+            this.label29.TabIndex = 34;
+            this.label29.Text = "Top Information";
             // 
-            // button13
+            // label28
             // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(810, 95);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(207, 51);
-            this.button13.TabIndex = 37;
-            this.button13.Text = "Top Books (Sales)";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.label28.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(0, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(32, 36);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "ANALYTICS";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button14
+            // panel2
             // 
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(810, 157);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(207, 51);
-            this.button14.TabIndex = 38;
-            this.button14.Text = "Top Books (Copies Sold)";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button16);
+            this.panel2.Controls.Add(this.button17);
+            this.panel2.Controls.Add(this.button18);
+            this.panel2.Controls.Add(this.button19);
+            this.panel2.Controls.Add(this.button20);
+            this.panel2.Controls.Add(this.button21);
+            this.panel2.Location = new System.Drawing.Point(821, 129);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(227, 530);
+            this.panel2.TabIndex = 13;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_2);
             // 
-            // button15
+            // button16
             // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(6, 249);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(567, 87);
-            this.button15.TabIndex = 3;
-            this.button15.Text = "Store Analytics";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button16.AccessibleDescription = "";
+            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Location = new System.Drawing.Point(0, 295);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(223, 59);
+            this.button16.TabIndex = 5;
+            this.button16.Text = "Order By Order Total (DESC)";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
-            // bttnClose
+            // button17
             // 
-            this.bttnClose.BackColor = System.Drawing.Color.Red;
-            this.bttnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnClose.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bttnClose.Location = new System.Drawing.Point(23, 752);
-            this.bttnClose.Name = "bttnClose";
-            this.bttnClose.Size = new System.Drawing.Size(191, 37);
-            this.bttnClose.TabIndex = 37;
-            this.bttnClose.Text = "Close";
-            this.bttnClose.UseVisualStyleBackColor = false;
-            this.bttnClose.Click += new System.EventHandler(this.bttnClose_Click);
+            this.button17.AccessibleDescription = "";
+            this.button17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.Location = new System.Drawing.Point(0, 236);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(223, 59);
+            this.button17.TabIndex = 4;
+            this.button17.Text = "Order By Book Quantity (DESC)";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button18
+            // 
+            this.button18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Location = new System.Drawing.Point(0, 177);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(223, 59);
+            this.button18.TabIndex = 3;
+            this.button18.Text = "Go To Last";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button19
+            // 
+            this.button19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.Location = new System.Drawing.Point(0, 118);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(223, 59);
+            this.button19.TabIndex = 2;
+            this.button19.Text = "Next";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button20
+            // 
+            this.button20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button20.Location = new System.Drawing.Point(0, 59);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(223, 59);
+            this.button20.TabIndex = 1;
+            this.button20.Text = "Previous";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // button21
+            // 
+            this.button21.AccessibleDescription = "";
+            this.button21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Location = new System.Drawing.Point(0, 0);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(223, 59);
+            this.button21.TabIndex = 0;
+            this.button21.Text = "Go To First";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(818, 56);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(112, 22);
+            this.label30.TabIndex = 42;
+            this.label30.Text = "Total Stock";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(821, 81);
+            this.textBox1.MaxLength = 10;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(222, 28);
+            this.textBox1.TabIndex = 41;
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1911, 957);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlAnalytics);
             this.Controls.Add(this.pnlUpdateStatus);
             this.Controls.Add(this.pnlCreateOrder);
@@ -1166,11 +1270,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numOrderID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB21)).EndInit();
             this.pnlAnalytics.ResumeLayout(false);
-            this.pnlAnalytics.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1259,8 +1364,6 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Panel pnlAnalytics;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button button14;
@@ -1269,5 +1372,14 @@
         private System.Windows.Forms.DataGridView OrderGridView;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button bttnClose;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
