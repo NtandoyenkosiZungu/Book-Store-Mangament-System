@@ -37,6 +37,7 @@
             this.adminsTableAdapter1 = new Novatra.MainDB2TableAdapters.AdminsTableAdapter();
             this.mainDB21 = new Novatra.MainDB2();
             this.adminsTableAdapter2 = new Novatra.MainDB2TableAdapters.AdminsTableAdapter();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB21)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.label1);
@@ -62,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 526);
+            this.panel1.Size = new System.Drawing.Size(957, 526);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -115,11 +117,21 @@
             // 
             this.adminsTableAdapter2.ClearBeforeFill = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(108, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(736, 54);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Book Store Management System";
+            // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 526);
+            this.ClientSize = new System.Drawing.Size(957, 526);
             this.Controls.Add(this.panel1);
             this.Name = "LogInForm";
             this.Text = "Novatra: Book Store Management System";
@@ -141,6 +153,7 @@
         private Novatra.MainDB2TableAdapters.AdminsTableAdapter adminsTableAdapter1;
         private MainDB2 mainDB21;
         private MainDB2TableAdapters.AdminsTableAdapter adminsTableAdapter2;
+        private System.Windows.Forms.Label label3;
         //private MainDB adminDS1;
     }
 }
