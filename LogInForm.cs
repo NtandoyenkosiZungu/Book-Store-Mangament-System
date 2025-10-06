@@ -22,7 +22,18 @@ namespace Novatra
             String username = txtAdmin.Text;
             String password = txtPassword.Text;
 
+            if (string.IsNullOrEmpty(username))
+            {
+                MessageBox.Show("Please fill in your username", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAdmin.Focus();
+                return;
+            }
 
+            if (string.IsNullOrEmpty(password)) {
+                MessageBox.Show("Please fill in your password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Focus(); 
+                return;
+            }
 
             var results = adminsTableAdapter2.LogIn(username, password);
 
@@ -33,7 +44,7 @@ namespace Novatra
                 this.Hide();
             } else
             {
-                MessageBox.Show("Login Failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Account Not Found, Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

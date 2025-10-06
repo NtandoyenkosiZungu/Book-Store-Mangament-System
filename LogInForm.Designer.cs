@@ -30,6 +30,7 @@
         {
             this.bttnLogIn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.adminsTableAdapter1 = new Novatra.MainDB2TableAdapters.AdminsTableAdapter();
             this.mainDB21 = new Novatra.MainDB2();
             this.adminsTableAdapter2 = new Novatra.MainDB2TableAdapters.AdminsTableAdapter();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB21)).BeginInit();
             this.SuspendLayout();
@@ -45,9 +45,9 @@
             // bttnLogIn
             // 
             this.bttnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnLogIn.Location = new System.Drawing.Point(341, 381);
+            this.bttnLogIn.Location = new System.Drawing.Point(284, 381);
             this.bttnLogIn.Name = "bttnLogIn";
-            this.bttnLogIn.Size = new System.Drawing.Size(265, 57);
+            this.bttnLogIn.Size = new System.Drawing.Size(375, 57);
             this.bttnLogIn.TabIndex = 0;
             this.bttnLogIn.Text = "Log In";
             this.bttnLogIn.UseVisualStyleBackColor = true;
@@ -66,6 +66,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(957, 526);
             this.panel1.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(80, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(736, 54);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Book Store Management System";
             // 
             // label2
             // 
@@ -116,16 +126,6 @@
             // adminsTableAdapter2
             // 
             this.adminsTableAdapter2.ClearBeforeFill = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(108, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(736, 54);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Book Store Management System";
             // 
             // LogInForm
             // 

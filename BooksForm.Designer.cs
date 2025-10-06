@@ -39,6 +39,7 @@
             this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDB = new Novatra.MainDB2();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.bttnDeleteBook = new System.Windows.Forms.Button();
             this.bttnUpdateBook = new System.Windows.Forms.Button();
@@ -89,12 +90,39 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.categoriesTableAdapter1 = new Novatra.MainDB2TableAdapters.CategoriesTableAdapter();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.pnlAddCategory = new System.Windows.Forms.Panel();
+            this.button19 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.numUCategoryID = new System.Windows.Forms.NumericUpDown();
+            this.txtuCategoryName = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.button17 = new System.Windows.Forms.Button();
+            this.categoriesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtdCategoryName = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.numDCategoryID = new System.Windows.Forms.NumericUpDown();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button15 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtaCategoryName = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tableAdapterManager = new Novatra.MainDB2TableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB)).BeginInit();
@@ -107,6 +135,13 @@
             this.pnlDeleteBook.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnlAddCategory.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUCategoryID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGridView)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDCategoryID)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -126,7 +161,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(904, 682);
+            this.dataGridView1.Size = new System.Drawing.Size(904, 715);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -191,14 +226,26 @@
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Controls.Add(this.button12);
             this.pnlMenu.Controls.Add(this.label1);
             this.pnlMenu.Controls.Add(this.bttnDeleteBook);
             this.pnlMenu.Controls.Add(this.bttnUpdateBook);
             this.pnlMenu.Controls.Add(this.bttnAddBook);
             this.pnlMenu.Location = new System.Drawing.Point(1157, 67);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(569, 480);
+            this.pnlMenu.Size = new System.Drawing.Size(569, 585);
             this.pnlMenu.TabIndex = 1;
+            // 
+            // button12
+            // 
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(0, 430);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(569, 111);
+            this.button12.TabIndex = 4;
+            this.button12.Text = "Manage Categories";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label1
             // 
@@ -214,7 +261,7 @@
             // bttnDeleteBook
             // 
             this.bttnDeleteBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnDeleteBook.Location = new System.Drawing.Point(0, 350);
+            this.bttnDeleteBook.Location = new System.Drawing.Point(0, 313);
             this.bttnDeleteBook.Name = "bttnDeleteBook";
             this.bttnDeleteBook.Size = new System.Drawing.Size(569, 111);
             this.bttnDeleteBook.TabIndex = 2;
@@ -225,7 +272,7 @@
             // bttnUpdateBook
             // 
             this.bttnUpdateBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnUpdateBook.Location = new System.Drawing.Point(0, 233);
+            this.bttnUpdateBook.Location = new System.Drawing.Point(0, 196);
             this.bttnUpdateBook.Name = "bttnUpdateBook";
             this.bttnUpdateBook.Size = new System.Drawing.Size(569, 111);
             this.bttnUpdateBook.TabIndex = 1;
@@ -236,7 +283,7 @@
             // bttnAddBook
             // 
             this.bttnAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnAddBook.Location = new System.Drawing.Point(0, 117);
+            this.bttnAddBook.Location = new System.Drawing.Point(0, 80);
             this.bttnAddBook.Name = "bttnAddBook";
             this.bttnAddBook.Size = new System.Drawing.Size(569, 111);
             this.bttnAddBook.TabIndex = 0;
@@ -430,9 +477,9 @@
             this.pnlUpdateBook.Controls.Add(this.txtuBookAuthor);
             this.pnlUpdateBook.Controls.Add(this.label13);
             this.pnlUpdateBook.Controls.Add(this.txtuBookTitle);
-            this.pnlUpdateBook.Location = new System.Drawing.Point(168, 110);
+            this.pnlUpdateBook.Location = new System.Drawing.Point(46, 302);
             this.pnlUpdateBook.Name = "pnlUpdateBook";
-            this.pnlUpdateBook.Size = new System.Drawing.Size(52, 81);
+            this.pnlUpdateBook.Size = new System.Drawing.Size(45, 90);
             this.pnlUpdateBook.TabIndex = 3;
             this.pnlUpdateBook.Visible = false;
             this.pnlUpdateBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -500,7 +547,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 36);
+            this.label8.Size = new System.Drawing.Size(45, 36);
             this.label8.TabIndex = 12;
             this.label8.Text = "UPDATE BOOK";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -604,9 +651,9 @@
             this.pnlDeleteBook.Controls.Add(this.txtdBookID);
             this.pnlDeleteBook.Controls.Add(this.bttnDeleteConfirm);
             this.pnlDeleteBook.Controls.Add(this.bttnDeleteCancel);
-            this.pnlDeleteBook.Location = new System.Drawing.Point(76, 183);
+            this.pnlDeleteBook.Location = new System.Drawing.Point(102, 197);
             this.pnlDeleteBook.Name = "pnlDeleteBook";
-            this.pnlDeleteBook.Size = new System.Drawing.Size(49, 79);
+            this.pnlDeleteBook.Size = new System.Drawing.Size(60, 107);
             this.pnlDeleteBook.TabIndex = 4;
             this.pnlDeleteBook.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
@@ -616,7 +663,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(49, 36);
+            this.label16.Size = new System.Drawing.Size(60, 36);
             this.label16.TabIndex = 18;
             this.label16.Text = "DELETE BOOK";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -678,7 +725,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(904, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(917, 48);
+            this.panel1.Size = new System.Drawing.Size(1020, 48);
             this.panel1.TabIndex = 6;
             // 
             // button3
@@ -737,6 +784,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button11);
             this.panel2.Controls.Add(this.button10);
             this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.button8);
@@ -747,6 +795,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(227, 530);
             this.panel2.TabIndex = 7;
+            // 
+            // button11
+            // 
+            this.button11.AccessibleDescription = "";
+            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(0, 354);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(223, 59);
+            this.button11.TabIndex = 6;
+            this.button11.Text = "Reset Order";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -823,15 +884,315 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
+            // pnlAddCategory
+            // 
+            this.pnlAddCategory.Controls.Add(this.button19);
+            this.pnlAddCategory.Controls.Add(this.panel5);
+            this.pnlAddCategory.Controls.Add(this.categoriesDataGridView);
+            this.pnlAddCategory.Controls.Add(this.panel4);
+            this.pnlAddCategory.Controls.Add(this.panel3);
+            this.pnlAddCategory.Controls.Add(this.label18);
+            this.pnlAddCategory.Location = new System.Drawing.Point(173, 322);
+            this.pnlAddCategory.Name = "pnlAddCategory";
+            this.pnlAddCategory.Size = new System.Drawing.Size(76, 113);
+            this.pnlAddCategory.TabIndex = 5;
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.Red;
+            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button19.Location = new System.Drawing.Point(627, 13);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(191, 37);
+            this.button19.TabIndex = 24;
+            this.button19.Text = "Close";
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.numUCategoryID);
+            this.panel5.Controls.Add(this.txtuCategoryName);
+            this.panel5.Controls.Add(this.label25);
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.label23);
+            this.panel5.Controls.Add(this.button17);
+            this.panel5.Location = new System.Drawing.Point(465, 305);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(353, 252);
+            this.panel5.TabIndex = 23;
+            // 
+            // numUCategoryID
+            // 
+            this.numUCategoryID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numUCategoryID.Location = new System.Drawing.Point(30, 89);
+            this.numUCategoryID.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUCategoryID.Name = "numUCategoryID";
+            this.numUCategoryID.Size = new System.Drawing.Size(293, 27);
+            this.numUCategoryID.TabIndex = 24;
+            this.numUCategoryID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUCategoryID.ValueChanged += new System.EventHandler(this.numUCategoryID_ValueChanged);
+            // 
+            // txtuCategoryName
+            // 
+            this.txtuCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtuCategoryName.Location = new System.Drawing.Point(30, 157);
+            this.txtuCategoryName.Name = "txtuCategoryName";
+            this.txtuCategoryName.Size = new System.Drawing.Size(293, 28);
+            this.txtuCategoryName.TabIndex = 22;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(26, 127);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(148, 22);
+            this.label25.TabIndex = 23;
+            this.label25.Text = "Category Name";
+            // 
+            // label22
+            // 
+            this.label22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(0, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(349, 36);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "Update Category";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(26, 61);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(116, 22);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "Category ID";
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button17.Location = new System.Drawing.Point(134, 196);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(189, 37);
+            this.button17.TabIndex = 19;
+            this.button17.Text = "Update";
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // categoriesDataGridView
+            // 
+            this.categoriesDataGridView.AutoGenerateColumns = false;
+            this.categoriesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.categoriesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.categoriesDataGridView.DataSource = this.categoryBindingSource;
+            this.categoriesDataGridView.Location = new System.Drawing.Point(22, 64);
+            this.categoriesDataGridView.Name = "categoriesDataGridView";
+            this.categoriesDataGridView.RowHeadersWidth = 51;
+            this.categoriesDataGridView.RowTemplate.Height = 24;
+            this.categoriesDataGridView.Size = new System.Drawing.Size(428, 220);
+            this.categoriesDataGridView.TabIndex = 22;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CategoryID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CategoryID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CategoryName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CategoryName";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.txtdCategoryName);
+            this.panel4.Controls.Add(this.label24);
+            this.panel4.Controls.Add(this.numDCategoryID);
+            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.label21);
+            this.panel4.Controls.Add(this.button15);
+            this.panel4.Location = new System.Drawing.Point(22, 308);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(428, 249);
+            this.panel4.TabIndex = 22;
+            // 
+            // txtdCategoryName
+            // 
+            this.txtdCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdCategoryName.Location = new System.Drawing.Point(30, 139);
+            this.txtdCategoryName.Name = "txtdCategoryName";
+            this.txtdCategoryName.Size = new System.Drawing.Size(293, 28);
+            this.txtdCategoryName.TabIndex = 26;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(26, 114);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(148, 22);
+            this.label24.TabIndex = 27;
+            this.label24.Text = "Category Name";
+            // 
+            // numDCategoryID
+            // 
+            this.numDCategoryID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numDCategoryID.Location = new System.Drawing.Point(30, 79);
+            this.numDCategoryID.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numDCategoryID.Name = "numDCategoryID";
+            this.numDCategoryID.Size = new System.Drawing.Size(293, 27);
+            this.numDCategoryID.TabIndex = 25;
+            this.numDCategoryID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numDCategoryID.ValueChanged += new System.EventHandler(this.numDCategoryID_ValueChanged);
+            // 
+            // label20
+            // 
+            this.label20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(0, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(424, 36);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Delete Category";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(26, 51);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(116, 22);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "Category ID";
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button15.Location = new System.Drawing.Point(134, 185);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(189, 37);
+            this.button15.TabIndex = 19;
+            this.button15.Text = "Delete";
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Controls.Add(this.txtaCategoryName);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.button13);
+            this.panel3.Location = new System.Drawing.Point(467, 56);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(353, 228);
+            this.panel3.TabIndex = 21;
+            // 
+            // label19
+            // 
+            this.label19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(0, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(349, 36);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Add Category";
+            // 
+            // txtaCategoryName
+            // 
+            this.txtaCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtaCategoryName.Location = new System.Drawing.Point(30, 102);
+            this.txtaCategoryName.Name = "txtaCategoryName";
+            this.txtaCategoryName.Size = new System.Drawing.Size(293, 28);
+            this.txtaCategoryName.TabIndex = 16;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(26, 75);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(148, 22);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "Category Name";
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button13.Location = new System.Drawing.Point(159, 146);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(164, 37);
+            this.button13.TabIndex = 19;
+            this.button13.Text = "Confirm";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(414, 36);
+            this.label18.TabIndex = 20;
+            this.label18.Text = "MANAGE CATEGORIES";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AdminsTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BooksTableAdapter = this.booksTableAdapter;
+            this.tableAdapterManager.CategoriesTableAdapter = this.categoriesTableAdapter1;
+            this.tableAdapterManager.CustomersTableAdapter = null;
+            this.tableAdapterManager.OrdersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Novatra.MainDB2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // BooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1821, 682);
+            this.ClientSize = new System.Drawing.Size(1924, 715);
+            this.Controls.Add(this.pnlAddCategory);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlUpdateBook);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDeleteBook);
-            this.Controls.Add(this.pnlUpdateBook);
             this.Controls.Add(this.pnlAddBook);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.dataGridView1);
@@ -853,6 +1214,16 @@
             this.pnlDeleteBook.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.pnlAddCategory.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUCategoryID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGridView)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDCategoryID)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -926,5 +1297,33 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Panel pnlAddCategory;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtaCategoryName;
+        private System.Windows.Forms.DataGridView categoriesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label19;
+        private MainDB2TableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.TextBox txtuCategoryName;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.NumericUpDown numUCategoryID;
+        private System.Windows.Forms.NumericUpDown numDCategoryID;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.TextBox txtdCategoryName;
+        private System.Windows.Forms.Label label24;
     }
 }

@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -44,7 +46,23 @@ namespace Novatra
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        
+
+        //Method to check for email validity
+        public bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
+        }
+
+        //Method to check for cell phone number validity
+        public bool IsValidCellNumber(string number)
+        {
+            string pattern = @"^0\d{9}$";
+            return Regex.IsMatch(number, pattern);
+        }
+
+    private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -70,6 +88,26 @@ namespace Novatra
             String fullName = txtAName.Text;
             String email = txtAEmail.Text;
             String phone = txtAPhone.Text;
+
+            //Validating user input
+            if (string.IsNullOrEmpty(fullName)) {
+                MessageBox.Show("Invalid Customer Name", "RECORDING CUSTOMER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAName.Focus();
+                return;
+            }
+
+            if(!IsValidEmail(email))
+            {
+                MessageBox.Show("Invalid Email", "RECORDING CUSTOMER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAEmail.Focus();
+                return;
+            }
+
+            if (!IsValidCellNumber(phone)) {
+                MessageBox.Show("Invalid Cellphone Number", "RECORDING CUSTOMER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAPhone.Focus();
+                return;
+            }
 
             //Inserting Customer Details into Database
             try
@@ -168,10 +206,31 @@ namespace Novatra
         private void bttnUpdateConfirm_Click(object sender, EventArgs e)
         {
             //Reading Customer Details from TextBoxes
-            int customerID = int.Parse(txtUCustID.Text);
+            int customerID = int.Parse(numuCustID.Value.ToString());
             String fullName = txtUName.Text;
             String email = txtUEmail.Text;
             String phone = txtUPhone.Text;
+
+            //Data Validation
+            if (string.IsNullOrEmpty(fullName)) {
+                MessageBox.Show("Invalid Customer Name ", "UPDATING ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUName.Focus();
+                return;
+            }
+
+            if (!IsValidCellNumber(phone))
+            {
+                MessageBox.Show("Invalid Cellphone Number", "UPDATING CUSTOMER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAPhone.Focus();
+                return;
+            }
+
+            if (!IsValidEmail(email)) {
+                MessageBox.Show("Invalid Email", "UPDATING CUSTOMER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUName.Focus();
+                return;
+            }
+
 
             //Updating Customer Details in Database
             try
@@ -181,7 +240,7 @@ namespace Novatra
 
 
                 // Clear input fields after successful update
-                txtUCustID.Clear();
+                numuCustID.Value = 0;
                 txtUName.Clear();
                 txtUEmail.Clear();
                 txtUPhone.Clear();
@@ -212,7 +271,7 @@ namespace Novatra
                         if (customer.CellPhoneNum != phone) continue;
 
                         // Populate the text boxes with customer details
-                        txtUCustID.Text = customer.CustomerID.ToString();
+                        numuCustID.Value = int.Parse( customer.CustomerID.ToString());
                         txtUName.Text = customer.CustomerName;
                         txtUEmail.Text = customer.Email;
                         break;
@@ -281,12 +340,12 @@ namespace Novatra
         {
             try
             {
-                int custID = int.Parse(txtDCustID.Text);
+                int custID = int.Parse(numdCustID.Value.ToString());
 
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this customer ", "DELETING CUSTOMER", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes) {
                     customersTableAdapter.DeleteQuery(custID);
-                    txtDCustID.Text = "";
+                    numdCustID.Value = 1;
                     this.customersTableAdapter.Fill(this.mainDB.Customers);
                     MessageBox.Show("Customer successfully deleted", "DELETING CUSTOMER");
                 }
@@ -296,6 +355,55 @@ namespace Novatra
             }
 
             
+        }
+
+        private void customersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.Sort = "CustomerID ASC";
+        }
+
+        private void numuCustID_ValueChanged(object sender, EventArgs e)
+        {
+            int custID = int.Parse(numuCustID.Value.ToString());
+
+            MainDB2.CustomersDataTable table = this.mainDB.Customers;
+
+            customersTableAdapter.Fill(table);
+
+            foreach(var row in table)
+            {
+                MessageBox.Show(""+row.CustomerID);
+                if (row.CustomerID != custID) continue;
+
+                txtUName.Text = row.CustomerName;
+                txtUEmail.Text = row.Email.ToString();
+                txtUPhone.Text = row.CellPhoneNum.ToString();
+                break;
+            }
+        }
+
+        private void numuCustID_ValueChanged_1(object sender, EventArgs e)
+        {
+            int custID = int.Parse(numuCustID.Value.ToString());
+
+            MainDB2.CustomersDataTable table = this.mainDB.Customers;
+
+            customersTableAdapter.Fill(table);
+
+            foreach (var row in table)
+            {
+                if (row.CustomerID != custID) continue;
+
+                txtUName.Text = row.CustomerName;
+                txtUEmail.Text = row.Email.ToString();
+                txtUPhone.Text = row.CellPhoneNum.ToString();
+                break;
+            }
         }
     }
 }

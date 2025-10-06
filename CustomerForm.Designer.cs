@@ -47,7 +47,6 @@
             this.pnlDeleteCustomer = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.pnlCustID = new System.Windows.Forms.Label();
-            this.txtDCustID = new System.Windows.Forms.TextBox();
             this.bttnDeleteConfirm = new System.Windows.Forms.Button();
             this.bttnDeleteCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,12 +55,19 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.customersDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mainDB = new Novatra.MainDB2();
             this.txtUName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtUEmail = new System.Windows.Forms.TextBox();
@@ -70,29 +76,26 @@
             this.bttnUpdateConfirm = new System.Windows.Forms.Button();
             this.txtUPhone = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtUCustID = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pnlUpdateCustomer = new System.Windows.Forms.Panel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mainDB = new Novatra.MainDB2();
             this.customersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter = new Novatra.MainDB2TableAdapters.CustomersTableAdapter();
             this.tableAdapterManager = new Novatra.MainDB2TableAdapters.TableAdapterManager();
+            this.numuCustID = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.numdCustID = new System.Windows.Forms.NumericUpDown();
             this.pnlMenu.SuspendLayout();
             this.pnlAddCustomer.SuspendLayout();
             this.pnlDeleteCustomer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
-            this.pnlUpdateCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB)).BeginInit();
+            this.pnlUpdateCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numuCustID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numdCustID)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -265,14 +268,14 @@
             // 
             // pnlDeleteCustomer
             // 
+            this.pnlDeleteCustomer.Controls.Add(this.numdCustID);
             this.pnlDeleteCustomer.Controls.Add(this.label16);
             this.pnlDeleteCustomer.Controls.Add(this.pnlCustID);
-            this.pnlDeleteCustomer.Controls.Add(this.txtDCustID);
             this.pnlDeleteCustomer.Controls.Add(this.bttnDeleteConfirm);
             this.pnlDeleteCustomer.Controls.Add(this.bttnDeleteCancel);
-            this.pnlDeleteCustomer.Location = new System.Drawing.Point(1019, 705);
+            this.pnlDeleteCustomer.Location = new System.Drawing.Point(1211, 702);
             this.pnlDeleteCustomer.Name = "pnlDeleteCustomer";
-            this.pnlDeleteCustomer.Size = new System.Drawing.Size(36, 81);
+            this.pnlDeleteCustomer.Size = new System.Drawing.Size(45, 91);
             this.pnlDeleteCustomer.TabIndex = 5;
             // 
             // label16
@@ -281,7 +284,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(36, 34);
+            this.label16.Size = new System.Drawing.Size(45, 34);
             this.label16.TabIndex = 19;
             this.label16.Text = "DELETE CUSTOMER";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -295,14 +298,6 @@
             this.pnlCustID.Size = new System.Drawing.Size(120, 22);
             this.pnlCustID.TabIndex = 17;
             this.pnlCustID.Text = "Customer ID";
-            // 
-            // txtDCustID
-            // 
-            this.txtDCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDCustID.Location = new System.Drawing.Point(76, 105);
-            this.txtDCustID.Name = "txtDCustID";
-            this.txtDCustID.Size = new System.Drawing.Size(438, 28);
-            this.txtDCustID.TabIndex = 16;
             // 
             // bttnDeleteConfirm
             // 
@@ -393,6 +388,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.button17);
             this.panel2.Controls.Add(this.button18);
             this.panel2.Controls.Add(this.button19);
@@ -402,6 +398,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(227, 530);
             this.panel2.TabIndex = 14;
+            // 
+            // button8
+            // 
+            this.button8.AccessibleDescription = "";
+            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(0, 295);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(223, 59);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "Reset Order";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button17
             // 
@@ -482,6 +491,50 @@
             this.customersDataGridView.RowTemplate.Height = 24;
             this.customersDataGridView.Size = new System.Drawing.Size(886, 1007);
             this.customersDataGridView.TabIndex = 15;
+            this.customersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customersDataGridView_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerName";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CellPhoneNum";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CellPhoneNum";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // customersBindingSource
+            // 
+            this.customersBindingSource.DataMember = "Customers";
+            this.customersBindingSource.DataSource = this.mainDB;
+            // 
+            // mainDB
+            // 
+            this.mainDB.DataSetName = "MainDB";
+            this.mainDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtUName
             // 
@@ -548,7 +601,7 @@
             // txtUPhone
             // 
             this.txtUPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUPhone.Location = new System.Drawing.Point(45, 80);
+            this.txtUPhone.Location = new System.Drawing.Point(45, 283);
             this.txtUPhone.MaxLength = 10;
             this.txtUPhone.Name = "txtUPhone";
             this.txtUPhone.Size = new System.Drawing.Size(478, 28);
@@ -559,29 +612,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 55);
+            this.label7.Location = new System.Drawing.Point(41, 258);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(142, 22);
             this.label7.TabIndex = 23;
             this.label7.Text = "Phone Number";
-            // 
-            // txtUCustID
-            // 
-            this.txtUCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUCustID.Location = new System.Drawing.Point(45, 291);
-            this.txtUCustID.Name = "txtUCustID";
-            this.txtUCustID.Size = new System.Drawing.Size(478, 28);
-            this.txtUCustID.TabIndex = 28;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(41, 266);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 22);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "Customer ID";
             // 
             // label10
             // 
@@ -596,9 +631,9 @@
             // 
             // pnlUpdateCustomer
             // 
-            this.pnlUpdateCustomer.Controls.Add(this.label10);
+            this.pnlUpdateCustomer.Controls.Add(this.numuCustID);
             this.pnlUpdateCustomer.Controls.Add(this.label11);
-            this.pnlUpdateCustomer.Controls.Add(this.txtUCustID);
+            this.pnlUpdateCustomer.Controls.Add(this.label10);
             this.pnlUpdateCustomer.Controls.Add(this.label7);
             this.pnlUpdateCustomer.Controls.Add(this.txtUPhone);
             this.pnlUpdateCustomer.Controls.Add(this.bttnUpdateConfirm);
@@ -607,53 +642,10 @@
             this.pnlUpdateCustomer.Controls.Add(this.txtUEmail);
             this.pnlUpdateCustomer.Controls.Add(this.label9);
             this.pnlUpdateCustomer.Controls.Add(this.txtUName);
-            this.pnlUpdateCustomer.Location = new System.Drawing.Point(892, 682);
+            this.pnlUpdateCustomer.Location = new System.Drawing.Point(1095, 672);
             this.pnlUpdateCustomer.Name = "pnlUpdateCustomer";
-            this.pnlUpdateCustomer.Size = new System.Drawing.Size(42, 104);
+            this.pnlUpdateCustomer.Size = new System.Drawing.Size(42, 121);
             this.pnlUpdateCustomer.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerName";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Email";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CellPhoneNum";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CellPhoneNum";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // customersBindingSource
-            // 
-            this.customersBindingSource.DataMember = "Customers";
-            this.customersBindingSource.DataSource = this.mainDB;
-            // 
-            // mainDB
-            // 
-            this.mainDB.DataSetName = "MainDB";
-            this.mainDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // customersBindingSource1
             // 
@@ -673,6 +665,53 @@
             this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
             this.tableAdapterManager.OrdersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Novatra.MainDB2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // numuCustID
+            // 
+            this.numuCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numuCustID.Location = new System.Drawing.Point(47, 82);
+            this.numuCustID.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numuCustID.Name = "numuCustID";
+            this.numuCustID.Size = new System.Drawing.Size(476, 27);
+            this.numuCustID.TabIndex = 33;
+            this.numuCustID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numuCustID.ValueChanged += new System.EventHandler(this.numuCustID_ValueChanged_1);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(41, 57);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(120, 22);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Customer ID";
+            // 
+            // numdCustID
+            // 
+            this.numdCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numdCustID.Location = new System.Drawing.Point(76, 113);
+            this.numdCustID.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numdCustID.Name = "numdCustID";
+            this.numdCustID.Size = new System.Drawing.Size(438, 27);
+            this.numdCustID.TabIndex = 34;
+            this.numdCustID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // CustomerForm
             // 
@@ -697,11 +736,13 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).EndInit();
-            this.pnlUpdateCustomer.ResumeLayout(false);
-            this.pnlUpdateCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDB)).EndInit();
+            this.pnlUpdateCustomer.ResumeLayout(false);
+            this.pnlUpdateCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numuCustID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numdCustID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -730,7 +771,6 @@
         private System.Windows.Forms.Button bttnAddCancel;
         private System.Windows.Forms.Panel pnlDeleteCustomer;
         private System.Windows.Forms.Label pnlCustID;
-        private System.Windows.Forms.TextBox txtDCustID;
         private System.Windows.Forms.Button bttnDeleteConfirm;
         private System.Windows.Forms.Button bttnDeleteCancel;
         private System.Windows.Forms.Label label16;
@@ -754,8 +794,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Panel pnlUpdateCustomer;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtUCustID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtUPhone;
         private System.Windows.Forms.Button bttnUpdateConfirm;
@@ -764,5 +802,9 @@
         private System.Windows.Forms.TextBox txtUEmail;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtUName;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.NumericUpDown numuCustID;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown numdCustID;
     }
 }

@@ -31,14 +31,17 @@ namespace Novatra
             pnlAddBook.Visible = false;
             pnlUpdateBook.Visible = false;
             pnlDeleteBook.Visible = false;
+            pnlAddCategory.Visible = false;
 
             pnlDeleteBook.Size = new Size(pnlMenu.Size.Width, 234);
             pnlUpdateBook.Size = new Size(pnlMenu.Size.Width, 505);
             pnlAddBook.Size = new Size(pnlMenu.Size.Width, 505);
+            pnlAddCategory.Size = new Size(920, 574);
 
             pnlAddBook.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
             pnlUpdateBook.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
             pnlDeleteBook.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
+            pnlAddCategory.Location = new Point(pnlMenu.Location.X, pnlMenu.Location.Y);
 
             // Maximize the form window
             this.WindowState = FormWindowState.Maximized;
@@ -198,7 +201,7 @@ namespace Novatra
             }
             catch(Exception error)
             {
-                MessageBox.Show("An error occurred while deleting the book: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while deleting the book: " + error.Message, "DELETING BOOK ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -276,7 +279,7 @@ namespace Novatra
             }
             catch (Exception error)
             {
-                MessageBox.Show("An error occurred while updating the book: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while updating the book: " + error.Message, "RECORDING BOOK ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -323,11 +326,6 @@ namespace Novatra
             customerForm.Show();
         }
 
-        private void fKBooksCategoryI18EBB532BindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             // Navigate to Order Form
@@ -371,6 +369,132 @@ namespace Novatra
         private void button10_Click(object sender, EventArgs e)
         {
             booksBindingSource.Sort = "Price ASC";
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            booksBindingSource.Sort = "BookID ASC";
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            //Read User input
+            string categoryName = txtaCategoryName.Text;
+
+            //Perform Data Validation
+            if (string.IsNullOrEmpty(categoryName))
+            {
+                MessageBox.Show("Please fill in the category name", "RECORDING CATEGORY ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtaCategoryName.Focus();
+                return;
+            }
+
+            // Save data to the category table
+            categoriesTableAdapter1.Insert(categoryName);
+            MessageBox.Show("Category Added Successfully", "RECORDING CATEGORY", MessageBoxButtons.OK);
+            RefreshCategoriesTable();
+            
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel adding the category", "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes) {
+                pnlAddCategory.Visible = false;
+                pnlMenu.Visible = true;
+                
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            // Show the Add Category Panel
+            pnlMenu.Visible = false;
+            pnlAddCategory.Visible = true;
+
+            numUCategoryID.Maximum = categoryBindingSource.Count + 1;
+            numDCategoryID.Maximum = categoryBindingSource.Count + 1;
+        }
+
+
+        private void numUCategoryID_ValueChanged(object sender, EventArgs e)
+        {
+            int categoryID = int.Parse(numUCategoryID.Value.ToString());
+            MainDB2.CategoriesDataTable categories = this.mainDB.Categories;
+            categoriesTableAdapter1.Fill(categories);
+
+            foreach (var category in categories) {
+                if (category.CategoryID != categoryID) continue;
+
+                txtuCategoryName.Text = category.CategoryName.ToString();
+                break;
+            }
+        }
+
+        private void numDCategoryID_ValueChanged(object sender, EventArgs e)
+        {
+            int categoryID = int.Parse(numDCategoryID.Value.ToString());
+            MainDB2.CategoriesDataTable categories = this.mainDB.Categories;
+            categoriesTableAdapter1.Fill(categories);
+
+            foreach (var category in categories)
+            {
+                if (category.CategoryID != categoryID) continue;
+
+                txtdCategoryName.Text = category.CategoryName.ToString();
+                break;
+            }
+        }
+
+        private void RefreshCategoriesTable()
+        {
+            this.categoriesTableAdapter1.Fill(this.mainDB.Categories);
+            numDCategoryID.Maximum = categoryBindingSource.Count + 1;
+            numUCategoryID.Maximum = categoryBindingSource.Count + 1;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            int categoryID = int.Parse(numDCategoryID.Value.ToString());
+            string categoryName = txtdCategoryName.Text;
+
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this category", "DELETING CATEGORY", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    categoriesTableAdapter1.Delete(categoryID, categoryName);
+                    MessageBox.Show("Category Successfully Deleted", "DELETING CATEGORY");
+                    RefreshCategoriesTable();
+                }
+            } catch (Exception error) {
+                MessageBox.Show("Category is linked to a book, cannot be deleted.", "DELETING CATEGORY ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            int categoryID = int.Parse(numUCategoryID.Value.ToString());
+            string categoryName = txtuCategoryName.Text;
+
+            try
+            {
+                categoriesTableAdapter1.UpdateQuery(categoryName, categoryID);
+                RefreshCategoriesTable();
+                MessageBox.Show("Successfully updated category", "UPDATING CATEGORY");
+            }
+            catch (Exception error) {
+                MessageBox.Show("Failed to update category: " + error.Message, "UPDATING CATEGORY ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            pnlAddCategory.Visible = false;
+            pnlMenu.Visible = true;
         }
     }
 }

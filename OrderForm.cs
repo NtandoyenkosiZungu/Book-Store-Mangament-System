@@ -155,7 +155,10 @@ namespace Novatra
             int quantity = (int) numQuantity.Value;
             int bookQuantiy = originalBookQuantiy - quantity;
 
-
+            if(quantity == 0)
+            {
+                quantity = 1;
+            }
 
 
             booksTableAdapter1.UpdateQuantityQuery(bookQuantiy, bookID);      //Updating the book quantity
@@ -384,6 +387,15 @@ namespace Novatra
         {
         }
 
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            ordersBindingSource.Sort = "OrderID ASC";
+        }
 
         private void listViewCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {

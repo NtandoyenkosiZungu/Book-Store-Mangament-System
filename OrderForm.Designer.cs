@@ -127,8 +127,7 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button22 = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
@@ -1125,13 +1124,14 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button22);
             this.panel2.Controls.Add(this.button16);
             this.panel2.Controls.Add(this.button17);
             this.panel2.Controls.Add(this.button18);
             this.panel2.Controls.Add(this.button19);
             this.panel2.Controls.Add(this.button20);
             this.panel2.Controls.Add(this.button21);
-            this.panel2.Location = new System.Drawing.Point(821, 129);
+            this.panel2.Location = new System.Drawing.Point(818, 94);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(227, 530);
             this.panel2.TabIndex = 13;
@@ -1212,33 +1212,24 @@
             this.button21.UseVisualStyleBackColor = true;
             this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
-            // label30
+            // button22
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(818, 56);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(112, 22);
-            this.label30.TabIndex = 42;
-            this.label30.Text = "Total Stock";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(821, 81);
-            this.textBox1.MaxLength = 10;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 28);
-            this.textBox1.TabIndex = 41;
+            this.button22.AccessibleDescription = "";
+            this.button22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.Location = new System.Drawing.Point(0, 354);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(223, 59);
+            this.button22.TabIndex = 6;
+            this.button22.Text = "Reset Order";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1911, 957);
-            this.Controls.Add(this.label30);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlAnalytics);
             this.Controls.Add(this.pnlUpdateStatus);
@@ -1275,7 +1266,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1379,7 +1369,6 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button22;
     }
 }
